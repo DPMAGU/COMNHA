@@ -69,11 +69,11 @@ export default function Menu() {
         <div className="container mx-auto px-3 md:px-4 py-3">
           <div className="flex items-center justify-between mb-3">
             <div className="flex items-center space-x-3">
-              <i className="fas fa-utensils text-golden text-2xl"></i>
+              <i className="fas fa-bowl-rice text-golden text-2xl"></i>
               <h1 className="text-golden text-2xl font-bold">CƠM NHÀ</h1>
             </div>
             <a 
-              href="https://zalo.me/0708866767" 
+              href="https://zalo.me/0702866767" 
               target="_blank" 
               rel="noopener noreferrer"
               className="bg-orange-accent hover:bg-orange-600 text-white px-4 py-2 rounded-lg font-medium transition-colors"
@@ -120,28 +120,32 @@ export default function Menu() {
           
           {/* Restaurant Intro */}
           <section className="mb-12 text-center">
-            <div className="relative h-64 rounded-xl overflow-hidden mb-6">
+            {/* Restaurant ảnh chính */}
+            <div className="relative h-64 rounded-xl overflow-hidden mb-6 mt-10">
               <img 
-                src="https://images.unsplash.com/photo-1559339352-11d035aa65de?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=600" 
+                src="/anh.jpg" 
                 alt="Traditional Vietnamese restaurant interior" 
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-wood-dark/40 flex items-center justify-center">
                 <div className="text-center">
-                  <h2 className="text-4xl font-bold text-golden mb-2">Cơm Nhà Miền Tây</h2>
-                  <p className="text-xl text-cream">Hương vị quê nhà, ấm cúng bên gia đình</p>
+                  {/* <h2 className="text-4xl font-bold text-golden mb-2">Cơm Nhà Miền Tây</h2>
+                  <p className="text-xl text-cream">Hương vị quê nhà, ấm cúng bên gia đình</p>*/} 
                 </div>
               </div>
             </div>
-            <p className="text-lg text-cream/80 max-w-2xl mx-auto leading-relaxed">
-              Thưởng thức những món ăn đậm đà hương vị miền Tây, được chế biến từ những nguyên liệu tươi ngon nhất từ vùng đất Cửu Long. 
-              Không gian ấm cúng, phục vụ tận tình như ở nhà.
-            </p>
+            {/*
+              <p className="text-lg text-cream/80 max-w-2xl mx-auto leading-relaxed">
+                Thưởng thức những món ăn đậm đà hương vị miền Tây, được chế biến từ những nguyên liệu tươi ngon nhất từ vùng đất Cửu Long.  
+                Không gian ấm cúng, phục vụ tận tình như ở nhà.
+              </p>
+            */}
+
           </section>
 
           {/* Menu Grid */}
           <section className="mb-12">
-            <h3 className="text-2xl font-bold text-golden mb-6 text-center">THỰC ĐƠN</h3>
+            <h3 className="text-3xl font-bold text-golden mb-6 text-center">MENU</h3>
             
             {filteredItems.length === 0 ? (
               <div className="text-center py-12">
@@ -194,7 +198,7 @@ export default function Menu() {
                     Liên hệ
                   </h4>
                   <p className="text-cream/80 mb-4">
-                    <a href="tel:0708866767" className="hover:text-golden transition-colors">0708 866 767</a>
+                    <a href="tel:0708866767" className="hover:text-golden transition-colors">070 286 6767</a>
                   </p>
                   
                   <h4 className="text-lg font-semibold text-golden mb-4 flex items-center">
@@ -241,14 +245,14 @@ export default function Menu() {
           <p className="text-cream/60 mb-4">Hương vị miền Tây - Ấm cúng như nhà</p>
           <div className="flex justify-center space-x-6 text-cream/60">
             <a href="tel:0708866767" className="hover:text-golden transition-colors">
-              <i className="fas fa-phone mr-2"></i>0708 866 767
+              <i className="fas fa-phone mr-2"></i>070 286 6767
             </a>
-            <a href="https://zalo.me/0708866767" target="_blank" rel="noopener noreferrer" className="hover:text-golden transition-colors">
+            <a href="https://zalo.me/0702866767" target="_blank" rel="noopener noreferrer" className="hover:text-golden transition-colors">
               <i className="fab fa-facebook-messenger mr-2"></i>Zalo
             </a>
           </div>
           <div className="mt-4 pt-4 border-t border-golden/20 text-cream/40 text-sm">
-            © 2024 Cơm Nhà. Phát triển bởi website menu điện tử.
+            © 2025 Cơm Nhà. Phát triển bởi TH24.
           </div>
         </div>
       </footer>

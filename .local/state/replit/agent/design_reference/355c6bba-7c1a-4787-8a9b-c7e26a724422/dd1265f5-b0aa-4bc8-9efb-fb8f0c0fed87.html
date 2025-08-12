@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cơm Nhà - Menu Miền Tây</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    'wood-dark': '#2D1810',
+                    'wood-light': '#3D251A',
+                    'golden': '#F4D03F',
+                    'orange-accent': '#FF8C00',
+                    'cream': '#FAF0E6'
+                },
+                fontFamily: {
+                    'inter': ['Inter', 'sans-serif']
+                },
+                backgroundImage: {
+                    'wood-texture': "url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%23342318\" fill-opacity=\"0.1\"%3E%3Cpath d=\"M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')"
+                }
+            }
+        }
+    };
+    </script>
+</head>
+<body class="bg-wood-dark bg-wood-texture font-inter text-cream">
+    <!-- @COMPONENT: StickyHeader -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-wood-dark/95 backdrop-blur-sm border-b border-golden/20">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center space-x-3">
+                    <i class="fas fa-utensils text-golden text-2xl"></i>
+                    <h1 class="text-golden text-2xl font-bold">CƠM NHÀ</h1>
+                </div>
+                <a href="https://zalo.me/0708866767" target="_blank" 
+                   class="bg-orange-accent hover:bg-orange-600 text-white px-4 py-2 rounded-lg font-medium transition-colors">
+                    <i class="fab fa-facebook-messenger mr-2"></i>
+                    Đặt hàng qua Zalo
+                </a>
+            </div>
+            
+            <!-- Search Bar -->
+            <div class="relative mb-3">
+                <input type="text" id="searchInput" placeholder="Bạn đang cần tìm..." 
+                       class="w-full bg-wood-light border border-golden/30 rounded-lg px-4 py-2 pl-10 text-cream placeholder-cream/60 focus:outline-none focus:border-golden">
+                <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-golden/60"></i>
+            </div>
+            
+            <!-- Category Filters -->
+            <div class="flex flex-wrap gap-2" data-implementation="Category filtering functionality">
+                <!-- @STATE: activeCategory:string = 'all' -->
+                <button data-category="all" class="category-btn bg-golden text-wood-dark px-4 py-1 rounded-full text-sm font-medium hover:bg-golden/80 transition-colors">
+                    Tất cả
+                </button>
+                <button data-category="com" class="category-btn bg-wood-light border border-golden/30 text-golden px-4 py-1 rounded-full text-sm font-medium hover:bg-golden hover:text-wood-dark transition-colors">
+                    Cơm
+                </button>
+                <button data-category="bun" class="category-btn bg-wood-light border border-golden/30 text-golden px-4 py-1 rounded-full text-sm font-medium hover:bg-golden hover:text-wood-dark transition-colors">
+                    Bún/Miến
+                </button>
+                <button data-category="xao" class="category-btn bg-wood-light border border-golden/30 text-golden px-4 py-1 rounded-full text-sm font-medium hover:bg-golden hover:text-wood-dark transition-colors">
+                    Món Xào
+                </button>
+                <button data-category="nuoc" class="category-btn bg-wood-light border border-golden/30 text-golden px-4 py-1 rounded-full text-sm font-medium hover:bg-golden hover:text-wood-dark transition-colors">
+                    Nước Uống
+                </button>
+                <button data-category="trangmieng" class="category-btn bg-wood-light border border-golden/30 text-golden px-4 py-1 rounded-full text-sm font-medium hover:bg-golden hover:text-wood-dark transition-colors">
+                    Tráng Miệng
+                </button>
+            </div>
+        </div>
+    </header>
+    <!-- @END_COMPONENT: StickyHeader -->
+
+    <!-- Main Content -->
+    <main class="pt-40 pb-8">
+        <div class="container mx-auto px-4">
+            
+            <!-- @COMPONENT: RestaurantIntro -->
+            <section class="mb-12 text-center">
+                <!-- Traditional Vietnamese restaurant with wooden tables and lanterns -->
+                <div class="relative h-64 rounded-xl overflow-hidden mb-6">
+                    <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=600" 
+                         alt="Traditional Vietnamese restaurant interior" 
+                         class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-wood-dark/40 flex items-center justify-center">
+                        <div class="text-center">
+                            <h2 class="text-4xl font-bold text-golden mb-2">Cơm Nhà Miền Tây</h2>
+                            <p class="text-xl text-cream">Hương vị quê nhà, ấm cúng bên gia đình</p>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-lg text-cream/80 max-w-2xl mx-auto leading-relaxed">
+                    Thưởng thức những món ăn đậm đà hương vị miền Tây, được chế biến từ những nguyên liệu tươi ngon nhất từ vùng đất Cửu Long. 
+                    Không gian ấm cúng, phục vụ tận tình như ở nhà.
+                </p>
+            </section>
+            <!-- @END_COMPONENT: RestaurantIntro -->
+
+            <!-- @COMPONENT: MenuGrid -->
+            <section class="mb-12">
+                <h3 class="text-2xl font-bold text-golden mb-6 text-center">THỰC ĐƠN</h3>
+                
+                <!-- @MAP: menuItems.map(item => ( -->
+                <div id="menuGrid" class="grid grid-cols-1 md:grid-cols-2 gap-6" data-implementation="Filter and search functionality should update this grid">
+                    
+                    <!-- Cơm Category -->
+                    <div class="menu-item bg-wood-light/60 backdrop-blur-sm rounded-xl p-4 border border-golden/20 hover:border-golden/40 transition-all" data-category="com">
+                        <!-- Traditional Vietnamese rice dish with grilled pork and vegetables -->
+                        <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400" 
+                             alt="Cơm Sườn Nướng" 
+                             class="w-full aspect-square object-cover rounded-lg mb-4">
+                        <h4 class="text-lg font-semibold text-golden mb-2" data-bind="item.name">Cơm Sườn Nướng</h4>
+                        <p class="text-cream/70 text-sm mb-3" data-bind="item.description">Cơm trắng thơm, sườn nướng thơm lừng, kèm rau sống và nước mắm chua ngọt</p>
+                        <div class="flex justify-between items-center text-sm">
+                            <span class="text-cream/60">Nhỏ</span>
+                            <span class="text-orange-accent font-semibold" data-bind="item.priceSmall">60.000đ</span>
+                        </div>
+                        <div class="flex justify-between items-center text-sm">
+                            <span class="text-cream/60">Vừa</span>
+                            <span class="text-orange-accent font-semibold" data-bind="item.priceMedium">80.000đ</span>
+                        </div>
+                        <div class="flex justify-between items-center text-sm">
+                            <span class="text-cream/60">Lớn</span>
+                            <span class="text-orange-accent font-semibold" data-bind="item.priceLarge">100.000đ</span>
+                        </div>
+                    </div>
+
+                    <div class="menu-item bg-wood-light/60 backdrop-blur-sm rounded-xl p-4 border border-golden/20 hover:border-golden/40 transition-all" data-category="com">
+                        <!-- Traditional Vietnamese broken rice with grilled chicken -->
+                        <img src="https://images.unsplash.com/photo-1555126634-323283e090fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400" 
+                             alt="Cơm Tấm Gà Nướng" 
+                             class="w-full aspect-square object-cover rounded-lg mb-4">
+                        <h4 class="text-lg font-semibold text-golden mb-2">Cơm Tấm Gà Nướng</h4>
+                        <p class="text-cream/70 text-sm mb-3">Cơm tấm thơm bùi, gà nướng mật ong, chả trứng, bì cuốn</p>
+                        <div class="flex justify-between items-center text-sm">
+                            <span class="text-cream/60">Nhỏ</span>
+                            <span class="text-orange-accent font-semibold">65.000đ</span>
+                        </div>
+                        <div class="flex justify-between items-center text-sm">
+                            <span class="text-cream/60">Vừa</span>
+                            <span class="text-orange-accent font-semibold">85.000đ</span>
+                        </div>
+                        <div class="flex justify-between items-center text-sm">
+                            <span class="text-cream/60">Lớn</span>
+                            <span class="text-orange-accent font-semibold">110.000đ</span>
+                        </div>
+                    </div>
+
+                    <div class="menu-item bg-wood-light/60 backdrop-blur-sm rounded-xl p-4 border border-golden/20 hover:border-golden/40 transition-all" data-category="com">
+                        <!-- Vietnamese clay pot rice with Chinese sausage and vegetables -->
+                        <img src="https://images.unsplash.com/photo-1626804475297-41608ea09aeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400" 
+                             alt="Cơm Niêu Lạp Xưởng" 
+                             class="w-full aspect-square object-cover rounded-lg mb-4">
+                        <h4 class="text-lg font-semibold text-golden mb-2">Cơm Niêu Lạp Xưởng</h4>
+                        <p class="text-cream/70 text-sm mb-3">Cơm niêu cháy thơm, lạp xưởng, nấm hương, rau cải</p>
+                        <div class="flex justify-between items-center text-sm">
+                            <span class="text-cream/60">Nhỏ</span>
+                            <span class="text-orange-accent font-semibold">70.000đ</span>
+                        </div>
+                        <div class="flex justify-between items-center text-sm">
+                            <span class="text-cream/60">Vừa</span>
+                            <span class="text-orange-accent font-semibold">90.000đ</span>
+                        </div>
+                        <div class="flex justify-between items-center text-sm">
+                            <span class="text-cream/60">Lớn</span>
+                            <span class="text-orange-accent font-semibold">120.000đ</span>
+                        </div>
+                    </div>
+
+                    <!-- Bún/Miến Category -->
+                    <div class="menu-item bg-wood-light/60 backdrop-blur-sm rounded-xl p-4 border border-golden/20 hover:border-golden/40 transition-all" data-category="bun">
+                        <!-- Vietnamese vermicelli soup with pork and herbs -->
+                        <img src="https://pixabay.com/get/g27f4c40a1ec9c9182d06bda9c0891502210dcb47ac30e40abd3790547d560d450fc3e479476b1183e4dd809bfdf5490e2e72306c4bc4c85083cc2248729bdfcf_1280.jpg" 
+                             alt="Bún Bò Huế" 
+                             class="w-full aspect-square object-cover rounded-lg mb-4">
+                        <h4 class="text-lg font-semibold text-golden mb-2">Bún Bò Huế</h4>
+                        <p class="text-cream/70 text-sm mb-3">Bún tươi, nước dùng cay nồng, thịt bò, chả, huyết</p>
+                        <div class="flex justify-between items-center text-sm">
+                            <span class="text-cream/60">Nhỏ</span>
+                            <span class="text-orange-accent font-semibold">45.000đ</span>
+                        </div>
+                        <div class="flex justify-between items-center text-sm">
+                            <span class="text-cream/60">Vừa</span>
+                            <span class="text-orange-accent font-semibold">55.000đ</span>
+                        </div>
+                        <div class="flex justify-between items-center text-sm">
+                            <span class="text-cream/60">Lớn</span>
+                            <span class="text-orange-accent font-semibold">65.000đ</span>
+                        </div>
+                    </div>
+
+                    <div class="menu-item bg-wood-light/60 backdrop-blur-sm rounded-xl p-4 border border-golden/20 hover:border-golden/40 transition-all" data-category="bun">
+                        <!-- Vietnamese rice paper rolls with fresh herbs and pork -->
+                        <img src="https://pixabay.com/get/g054f7a6bb090a1d5466432e9a082e5f2498bb66cc0f9d3df75fb9e2ce73a9086055e496a56da270ac132e411bcf9eb95cf6bb2a4748c077ec60af4c05a6ec8be_1280.jpg" 
+                             alt="Bún Thịt Nướng" 
+                             class="w-full aspect-square object-cover rounded-lg mb-4">
+                        <h4 class="text-lg font-semibold text-golden mb-2">Bún Thịt Nướng</h4>
+                        <p class="text-cream/70 text-sm mb-3">Bún tươi, thịt nướng thơm phức, rau sống, nước mắm chua ngọt</p>
+                        <div class="flex justify-between items-center text-sm">
+                            <span class="text-cream/60">Nhỏ</span>
+                            <span class="text-orange-accent font-semibold">50.000đ</span>
+                        </div>
+                        <div class="flex justify-between items-center text-sm">
+                            <span class="text-cream/60">Vừa</span>
+                            <span class="text-orange-accent font-semibold">65.000đ</span>
+                        </div>
+                        <div class="flex justify-between items-center text-sm">
+                            <span class="text-cream/60">Lớn</span>
+                            <span class="text-orange-accent font-semibold">80.000đ</span>
+                        </div>
+                    </div>
+
+                    <!-- Món Xào Category -->
+                    <div class="menu-item bg-wood-light/60 backdrop-blur-sm rounded-xl p-4 border border-golden/20 hover:border-golden/40 transition-all" data-category="xao">
+                        <!-- Vietnamese stir-fried water spinach with garlic -->
+                        <img src="https://pixabay.com/get/g873a88043ce7f9a1d083280ee1a62c232ff5c0f54c8fa65a9cd6c90d0eac603f96851278b52a7e7b7223ff086f32d3939448674122f54d54350646def8c16e30_1280.jpg" 
+                             alt="Rau Muống Xào Tỏi" 
+                             class="w-full aspect-square object-cover rounded-lg mb-4">
+                        <h4 class="text-lg font-semibold text-golden mb-2">Rau Muống Xào Tỏi</h4>
+                        <p class="text-cream/70 text-sm mb-3">Rau muống tươi xào tỏi phi thơm, giòn ngon</p>
+                        <div class="flex justify-between items-center text-sm">
+                            <span class="text-cream/60">Nhỏ</span>
+                            <span class="text-orange-accent font-semibold">35.000đ</span>
+                        </div>
+                        <div class="flex justify-between items-center text-sm">
+                            <span class="text-cream/60">Vừa</span>
+                            <span class="text-orange-accent font-semibold">45.000đ</span>
+                        </div>
+                        <div class="flex justify-between items-center text-sm">
+                            <span class="text-cream/60">Lớn</span>
+                            <span class="text-orange-accent font-semibold">55.000đ</span>
+                        </div>
+                    </div>
+
+                    <div class="menu-item bg-wood-light/60 backdrop-blur-sm rounded-xl p-4 border border-golden/20 hover:border-golden/40 transition-all" data-category="xao">
+                        <!-- Vietnamese stir-fried beef with lemongrass -->
+                        <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400" 
+                             alt="Bò Xào Sả Ớt" 
+                             class="w-full aspect-square object-cover rounded-lg mb-4">
+                        <h4 class="text-lg font-semibold text-golden mb-2">Bò Xào Sả Ớt</h4>
+                        <p class="text-cream/70 text-sm mb-3">Thịt bò tươi xào sả ớt cay nồng, thơm lừng</p>
+                        <div class="flex justify-between items-center text-sm">
+                            <span class="text-cream/60">Nhỏ</span>
+                            <span class="text-orange-accent font-semibold">80.000đ</span>
+                        </div>
+                        <div class="flex justify-between items-center text-sm">
+                            <span class="text-cream/60">Vừa</span>
+                            <span class="text-orange-accent font-semibold">110.000đ</span>
+                        </div>
+                        <div class="flex justify-between items-center text-sm">
+                            <span class="text-cream/60">Lớn</span>
+                            <span class="text-orange-accent font-semibold">140.000đ</span>
+                        </div>
+                    </div>
+
+                    <!-- Nước Uống Category -->
+                    <div class="menu-item bg-wood-light/60 backdrop-blur-sm rounded-xl p-4 border border-golden/20 hover:border-golden/40 transition-all" data-category="nuoc">
+                        <!-- Traditional Vietnamese iced coffee with condensed milk -->
+                        <img src="https://images.unsplash.com/photo-1561047029-3000c68339ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400" 
+                             alt="Cà Phê Sữa Đá" 
+                             class="w-full aspect-square object-cover rounded-lg mb-4">
+                        <h4 class="text-lg font-semibold text-golden mb-2">Cà Phê Sữa Đá</h4>
+                        <p class="text-cream/70 text-sm mb-3">Cà phê rang xay truyền thống, sữa đặc ngọt ngào</p>
+                        <div class="flex justify-between items-center text-sm">
+                            <span class="text-cream/60">Thường</span>
+                            <span class="text-orange-accent font-semibold">25.000đ</span>
+                        </div>
+                    </div>
+
+                    <div class="menu-item bg-wood-light/60 backdrop-blur-sm rounded-xl p-4 border border-golden/20 hover:border-golden/40 transition-all" data-category="nuoc">
+                        <!-- Fresh coconut water drink -->
+                        <img src="https://images.unsplash.com/photo-1559181567-c3190ca9959b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400" 
+                             alt="Nước Dừa Tươi" 
+                             class="w-full aspect-square object-cover rounded-lg mb-4">
+                        <h4 class="text-lg font-semibold text-golden mb-2">Nước Dừa Tươi</h4>
+                        <p class="text-cream/70 text-sm mb-3">Nước dừa tươi mát, ngọt tự nhiên từ miền Tây</p>
+                        <div class="flex justify-between items-center text-sm">
+                            <span class="text-cream/60">Thường</span>
+                            <span class="text-orange-accent font-semibold">20.000đ</span>
+                        </div>
+                    </div>
+
+                    <!-- Tráng Miệng Category -->
+                    <div class="menu-item bg-wood-light/60 backdrop-blur-sm rounded-xl p-4 border border-golden/20 hover:border-golden/40 transition-all" data-category="trangmieng">
+                        <!-- Traditional Vietnamese three-color dessert drink -->
+                        <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400" 
+                             alt="Chè Ba Màu" 
+                             class="w-full aspect-square object-cover rounded-lg mb-4">
+                        <h4 class="text-lg font-semibold text-golden mb-2">Chè Ba Màu</h4>
+                        <p class="text-cream/70 text-sm mb-3">Chè đậu xanh, đậu đỏ, thạch rau câu, nước cốt dừa</p>
+                        <div class="flex justify-between items-center text-sm">
+                            <span class="text-cream/60">Thường</span>
+                            <span class="text-orange-accent font-semibold">30.000đ</span>
+                        </div>
+                    </div>
+
+                    <div class="menu-item bg-wood-light/60 backdrop-blur-sm rounded-xl p-4 border border-golden/20 hover:border-golden/40 transition-all" data-category="trangmieng">
+                        <!-- Traditional Vietnamese banana sticky rice dessert -->
+                        <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400" 
+                             alt="Bánh Chuối Nướng" 
+                             class="w-full aspect-square object-cover rounded-lg mb-4">
+                        <h4 class="text-lg font-semibold text-golden mb-2">Bánh Chuối Nướng</h4>
+                        <p class="text-cream/70 text-sm mb-3">Bánh chuối nướng lá chuối, thơm ngon truyền thống</p>
+                        <div class="flex justify-between items-center text-sm">
+                            <span class="text-cream/60">Thường</span>
+                            <span class="text-orange-accent font-semibold">35.000đ</span>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- @END_MAP )) -->
+            </section>
+            <!-- @END_COMPONENT: MenuGrid -->
+
+            <!-- @COMPONENT: RestaurantInfo -->
+            <section class="mb-12">
+                <div class="bg-wood-light/40 backdrop-blur-sm rounded-xl p-8 border border-golden/20">
+                    <h3 class="text-2xl font-bold text-golden mb-6 text-center">THÔNG TIN QUÁN</h3>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="text-lg font-semibold text-golden mb-4 flex items-center">
+                                <i class="fas fa-map-marker-alt mr-2"></i>
+                                Địa chỉ
+                            </h4>
+                            <p class="text-cream/80 mb-4">Số 7 Nguyễn Sơn 4, Lý Thái Tổ Mỹ Đại, P. Long Xuyên, TP. An Giang</p>
+                            
+                            <h4 class="text-lg font-semibold text-golden mb-4 flex items-center">
+                                <i class="fas fa-clock mr-2"></i>
+                                Giờ mở cửa
+                            </h4>
+                            <p class="text-cream/80">Thứ 2 - Chủ nhật: 6:00 - 22:00</p>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-semibold text-golden mb-4 flex items-center">
+                                <i class="fas fa-phone mr-2"></i>
+                                Liên hệ
+                            </h4>
+                            <p class="text-cream/80 mb-4">
+                                <a href="tel:0708866767" class="hover:text-golden transition-colors">0708 866 767</a>
+                            </p>
+                            
+                            <h4 class="text-lg font-semibold text-golden mb-4 flex items-center">
+                                <i class="fas fa-utensils mr-2"></i>
+                                Đặc sản
+                            </h4>
+                            <p class="text-cream/80">Món ăn miền Tây, hương vị truyền thống, tươi ngon mỗi ngày</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- @END_COMPONENT: RestaurantInfo -->
+
+            <!-- @COMPONENT: Conclusion -->
+            <section class="text-center mb-12">
+                <!-- Mekong Delta landscape with traditional boats and palm trees -->
+                <div class="relative h-48 rounded-xl overflow-hidden mb-6">
+                    <img src="https://images.unsplash.com/photo-1553603227-2358aabe821e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=400" 
+                         alt="Mekong Delta landscape with boats" 
+                         class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-wood-dark/60 flex items-center justify-center">
+                        <div class="text-center">
+                            <h3 class="text-2xl font-bold text-golden mb-2">Hẹn Gặp Lại Quý Khách!</h3>
+                            <p class="text-cream">Cảm ơn quý khách đã tin tưởng và ủng hộ Cơm Nhà</p>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-lg text-cream/80 max-w-2xl mx-auto">
+                    Với tâm huyết mang đến những món ăn ngon nhất từ miền Tây, chúng tôi luôn chào đón quý khách như người thân trong gia đình.
+                    Hãy ghé thăm và trải nghiệm hương vị quê nhà tại Cơm Nhà!
+                </p>
+            </section>
+            <!-- @END_COMPONENT: Conclusion -->
+
+        </div>
+    </main>
+
+    <!-- @COMPONENT: Footer -->
+    <footer class="bg-wood-dark/80 border-t border-golden/20 py-8">
+        <div class="container mx-auto px-4 text-center">
+            <div class="flex justify-center items-center mb-4">
+                <i class="fas fa-utensils text-golden text-3xl mr-3"></i>
+                <h2 class="text-2xl font-bold text-golden">CƠM NHÀ</h2>
+            </div>
+            <p class="text-cream/60 mb-4">Hương vị miền Tây - Ấm cúng như nhà</p>
+            <div class="flex justify-center space-x-6 text-cream/60">
+                <a href="tel:0708866767" class="hover:text-golden transition-colors">
+                    <i class="fas fa-phone mr-2"></i>0708 866 767
+                </a>
+                <a href="https://zalo.me/0708866767" target="_blank" class="hover:text-golden transition-colors">
+                    <i class="fab fa-facebook-messenger mr-2"></i>Zalo
+                </a>
+            </div>
+            <div class="mt-4 pt-4 border-t border-golden/20 text-cream/40 text-sm">
+                © 2024 Cơm Nhà. Phát triển bởi website menu điện tử.
+            </div>
+        </div>
+    </footer>
+    <!-- @END_COMPONENT: Footer -->
+
+    <script>
+    (function() {
+        // TODO: Implement search functionality
+        const searchInput = document.getElementById('searchInput');
+        const menuItems = document.querySelectorAll('.menu-item');
+        const categoryBtns = document.querySelectorAll('.category-btn');
+
+        // Category filtering
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const category = this.getAttribute('data-category');
+                
+                // Update active button
+                categoryBtns.forEach(b => {
+                    b.classList.remove('bg-golden', 'text-wood-dark');
+                    b.classList.add('bg-wood-light', 'border', 'border-golden/30', 'text-golden');
+                });
+                this.classList.remove('bg-wood-light', 'border', 'border-golden/30', 'text-golden');
+                this.classList.add('bg-golden', 'text-wood-dark');
+
+                // Filter items
+                menuItems.forEach(item => {
+                    if (category === 'all' || item.getAttribute('data-category') === category) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Search functionality
+        searchInput.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            
+            menuItems.forEach(item => {
+                const itemName = item.querySelector('h4').textContent.toLowerCase();
+                const itemDesc = item.querySelector('p').textContent.toLowerCase();
+                
+                if (itemName.includes(searchTerm) || itemDesc.includes(searchTerm)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+
+        // Smooth scroll behavior for better UX
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    })();
+    </script>
+</body>
+</html>

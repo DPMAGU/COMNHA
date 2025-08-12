@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cơm Nhà - Menu Miền Tây</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'mekong-brown': '#8B4513',
+                        'mekong-gold': '#DAA520',
+                        'mekong-orange': '#FF6B35',
+                        'mekong-beige': '#F5F5DC',
+                        'mekong-green': '#228B22'
+                    },
+                    fontFamily: {
+                        'vietnamese': ['Inter', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        };
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .pattern-bg {
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(218, 165, 32, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(139, 69, 19, 0.1) 0%, transparent 50%);
+        }
+        
+        .bamboo-border {
+            border-image: linear-gradient(45deg, #8B4513, #DAA520, #8B4513) 1;
+            border-style: solid;
+            border-width: 2px;
+        }
+
+        .food-card {
+            transition: all 0.3s ease;
+        }
+        
+        .food-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .category-btn.active {
+            background: linear-gradient(135deg, #8B4513, #DAA520);
+            color: white;
+        }
+
+        .zalo-pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+    </style>
+</head>
+<body class="bg-mekong-beige font-vietnamese">
+    <!-- @COMPONENT: Header [Restaurant branding and introduction] -->
+    <header class="bg-gradient-to-r from-mekong-brown to-mekong-gold text-white pattern-bg">
+        <div class="container mx-auto px-4 py-6">
+            <div class="text-center">
+                <div class="flex justify-center items-center mb-4">
+                    <i class="fas fa-utensils text-3xl mr-3"></i>
+                    <h1 class="text-4xl font-bold">Cơm Nhà</h1>
+                    <i class="fas fa-leaf text-3xl ml-3"></i>
+                </div>
+                <p class="text-lg mb-2">Hương vị miền Tây đậm đà</p>
+                <div class="flex justify-center items-center text-sm space-x-4">
+                    <span><i class="fas fa-phone mr-1"></i> 0926 666 767</span>
+                    <span><i class="fas fa-map-marker-alt mr-1"></i> Số 7 Nhâm Sĩ 4, Lý Thái Tổ Hòi Dak</span>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- @END_COMPONENT: Header -->
+
+    <!-- @COMPONENT: SearchAndFilters [Search bar and category filters] -->
+    <section class="bg-white shadow-md sticky top-0 z-40">
+        <div class="container mx-auto px-4 py-4">
+            <!-- Search Bar -->
+            <div class="relative mb-4">
+                <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                <input 
+                    type="text" 
+                    id="searchInput"
+                    placeholder="Tìm món ăn..." 
+                    class="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-mekong-gold"
+                    data-implementation="Should filter menu items by name"
+                >
+            </div>
+            
+            <!-- Category Filters -->
+            <div class="flex flex-wrap gap-2 justify-center">
+                <button class="category-btn active px-4 py-2 rounded-full border border-mekong-brown text-mekong-brown hover:bg-mekong-brown hover:text-white transition-all" data-category="all">
+                    Tất cả
+                </button>
+                <button class="category-btn px-4 py-2 rounded-full border border-mekong-brown text-mekong-brown hover:bg-mekong-brown hover:text-white transition-all" data-category="com">
+                    Cơm
+                </button>
+                <button class="category-btn px-4 py-2 rounded-full border border-mekong-brown text-mekong-brown hover:bg-mekong-brown hover:text-white transition-all" data-category="canh">
+                    Món Canh
+                </button>
+                <button class="category-btn px-4 py-2 rounded-full border border-mekong-brown text-mekong-brown hover:bg-mekong-brown hover:text-white transition-all" data-category="xao">
+                    Món Xào
+                </button>
+                <button class="category-btn px-4 py-2 rounded-full border border-mekong-brown text-mekong-brown hover:bg-mekong-brown hover:text-white transition-all" data-category="chien">
+                    Món Chiên
+                </button>
+                <button class="category-btn px-4 py-2 rounded-full border border-mekong-brown text-mekong-brown hover:bg-mekong-brown hover:text-white transition-all" data-category="kho">
+                    Món Kho
+                </button>
+                <button class="category-btn px-4 py-2 rounded-full border border-mekong-brown text-mekong-brown hover:bg-mekong-brown hover:text-white transition-all" data-category="nuoc">
+                    Nước Uống
+                </button>
+                <button class="category-btn px-4 py-2 rounded-full border border-mekong-brown text-mekong-brown hover:bg-mekong-brown hover:text-white transition-all" data-category="tra">
+                    Trà Sữa
+                </button>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: SearchAndFilters -->
+
+    <!-- @COMPONENT: MenuGrid [Main menu display with food items] -->
+    <main class="container mx-auto px-4 py-6">
+        <div id="menuGrid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            
+            <!-- @MAP: menuItems.map(item => ( -->
+            <!-- Món Canh Category -->
+            <div class="food-card bg-white rounded-xl shadow-lg overflow-hidden border-2 border-transparent hover:border-mekong-gold" data-category="canh" data-mock="true">
+                <!-- Traditional Vietnamese canh soup with vegetables and meat in a clay pot -->
+                <img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" alt="Canh Cá Lóc Nấu Bầu" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="font-semibold text-lg mb-2" data-bind="item.name">Canh Cá Lóc Nấu Bầu</h3>
+                    <div class="space-y-1 text-sm">
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Nhỏ:</span>
+                            <span class="font-semibold text-mekong-brown" data-bind="item.prices.small">60,000đ</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Vừa:</span>
+                            <span class="font-semibold text-mekong-brown" data-bind="item.prices.medium">110,000đ</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Lớn:</span>
+                            <span class="font-semibold text-mekong-brown" data-bind="item.prices.large">150,000đ</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="food-card bg-white rounded-xl shadow-lg overflow-hidden border-2 border-transparent hover:border-mekong-gold" data-category="canh" data-mock="true">
+                <!-- Vietnamese fish head soup with tomatoes and herbs -->
+                <img src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" alt="Canh Chua Cá Bớp" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="font-semibold text-lg mb-2">Canh Chua Cá Bớp</h3>
+                    <div class="space-y-1 text-sm">
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Nhỏ:</span>
+                            <span class="font-semibold text-mekong-brown">60,000đ</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Vừa:</span>
+                            <span class="font-semibold text-mekong-brown">120,000đ</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Lớn:</span>
+                            <span class="font-semibold text-mekong-brown">180,000đ</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="food-card bg-white rounded-xl shadow-lg overflow-hidden border-2 border-transparent hover:border-mekong-gold" data-category="canh" data-mock="true">
+                <!-- Vietnamese pork rib soup with green vegetables -->
+                <img src="https://images.unsplash.com/photo-1569562211093-4ed0d0758f12?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" alt="Canh Chua Cá Thác Lác" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="font-semibold text-lg mb-2">Canh Chua Cá Thác Lác</h3>
+                    <div class="space-y-1 text-sm">
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Nhỏ:</span>
+                            <span class="font-semibold text-mekong-brown">60,000đ</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Vừa:</span>
+                            <span class="font-semibold text-mekong-brown">110,000đ</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Lớn:</span>
+                            <span class="font-semibold text-mekong-brown">150,000đ</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="food-card bg-white rounded-xl shadow-lg overflow-hidden border-2 border-transparent hover:border-mekong-gold" data-category="canh" data-mock="true">
+                <!-- Vietnamese clear soup with vegetables and fish -->
+                <img src="https://images.unsplash.com/photo-1559847844-5315695dadae?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" alt="Canh Khổ Qua" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="font-semibold text-lg mb-2">Canh Khổ Qua</h3>
+                    <div class="space-y-1 text-sm">
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Nhỏ:</span>
+                            <span class="font-semibold text-mekong-brown">60,000đ</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Vừa:</span>
+                            <span class="font-semibold text-mekong-brown">110,000đ</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Lớn:</span>
+                            <span class="font-semibold text-mekong-brown">150,000đ</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Món Xào Category -->
+            <div class="food-card bg-white rounded-xl shadow-lg overflow-hidden border-2 border-transparent hover:border-mekong-gold" data-category="xao" data-mock="true">
+                <!-- Vietnamese stir-fried water spinach with garlic -->
+                <img src="https://images.unsplash.com/photo-1515443961218-a51367888e4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" alt="Rau Luộc" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="font-semibold text-lg mb-2">Rau Luộc</h3>
+                    <div class="space-y-1 text-sm">
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Nhỏ:</span>
+                            <span class="font-semibold text-mekong-brown">40,000đ</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Vừa:</span>
+                            <span class="font-semibold text-mekong-brown">60,000đ</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Lớn:</span>
+                            <span class="font-semibold text-mekong-brown">90,000đ</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="food-card bg-white rounded-xl shadow-lg overflow-hidden border-2 border-transparent hover:border-mekong-gold" data-category="xao" data-mock="true">
+                <!-- Vietnamese stir-fried mixed vegetables with meat -->
+                <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" alt="Đậu Thìa Xào Tỏi" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="font-semibold text-lg mb-2">Đậu Thìa Xào Tỏi</h3>
+                    <div class="space-y-1 text-sm">
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Nhỏ:</span>
+                            <span class="font-semibold text-mekong-brown">40,000đ</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Vừa:</span>
+                            <span class="font-semibold text-mekong-brown">60,000đ</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Lớn:</span>
+                            <span class="font-semibold text-mekong-brown">90,000đ</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="food-card bg-white rounded-xl shadow-lg overflow-hidden border-2 border-transparent hover:border-mekong-gold" data-category="xao" data-mock="true">
+                <!-- Vietnamese stir-fried noodles with vegetables and meat -->
+                <img src="https://images.unsplash.com/photo-1585032226651-759b368d7246?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" alt="Khổ Qua Xào Trứng" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="font-semibold text-lg mb-2">Khổ Qua Xào Trứng</h3>
+                    <div class="space-y-1 text-sm">
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Nhỏ:</span>
+                            <span class="font-semibold text-mekong-brown">40,000đ</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Vừa:</span>
+                            <span class="font-semibold text-mekong-brown">60,000đ</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Lớn:</span>
+                            <span class="font-semibold text-mekong-brown">120,000đ</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="food-card bg-white rounded-xl shadow-lg overflow-hidden border-2 border-transparent hover:border-mekong-gold" data-category="xao" data-mock="true">
+                <!-- Vietnamese stir-fried tofu with lemongrass -->
+                <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" alt="Báng Lăng Xào Xã Ớt" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="font-semibold text-lg mb-2">Báng Lăng Xào Xã Ớt</h3>
+                    <div class="space-y-1 text-sm">
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Nhỏ:</span>
+                            <span class="font-semibold text-mekong-brown">60,000đ</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Vừa:</span>
+                            <span class="font-semibold text-mekong-brown">80,000đ</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Lớn:</span>
+                            <span class="font-semibold text-mekong-brown">120,000đ</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Món Kho Category -->
+            <div class="food-card bg-white rounded-xl shadow-lg overflow-hidden border-2 border-transparent hover:border-mekong-gold" data-category="kho" data-mock="true">
+                <!-- Vietnamese braised fish in clay pot with caramel sauce -->
+                <img src="https://pixabay.com/get/gf899d5f94536254d41ea083a2124461eb0c7525518282409f42cbb2fcb33fa9d012cb44b6bdccb761d5565d01d6cbc05520923440e1581665f4a5850c070e4fc_1280.jpg" alt="Cá Lóc Kho Tộ" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="font-semibold text-lg mb-2">Cá Lóc Kho Tộ</h3>
+                    <div class="space-y-1 text-sm">
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Nhỏ:</span>
+                            <span class="font-semibold text-mekong-brown">60,000đ</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Vừa:</span>
+                            <span class="font-semibold text-mekong-brown">115,000đ</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Lớn:</span>
+                            <span class="font-semibold text-mekong-brown">160,000đ</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="food-card bg-white rounded-xl shadow-lg overflow-hidden border-2 border-transparent hover:border-mekong-gold" data-category="kho" data-mock="true">
+                <!-- Vietnamese braised pork belly in coconut juice -->
+                <img src="https://pixabay.com/get/gb8edfd5365bb299f6efa56c9ba3ee9d334001b21dbd1353e2435a5ea7539faac17eeb43475400fa930e59c94740ebff6c91c2a17957e5297ad5f9bdeec3386d4_1280.jpg" alt="Cá Kho Tộ" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="font-semibold text-lg mb-2">Cá Kho Tộ</h3>
+                    <div class="space-y-1 text-sm">
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Nhỏ:</span>
+                            <span class="font-semibold text-mekong-brown">60,000đ</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Vừa:</span>
+                            <span class="font-semibold text-mekong-brown">115,000đ</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Lớn:</span>
+                            <span class="font-semibold text-mekong-brown">160,000đ</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="food-card bg-white rounded-xl shadow-lg overflow-hidden border-2 border-transparent hover:border-mekong-gold" data-category="kho" data-mock="true">
+                <!-- Vietnamese braised duck with ginger in clay pot -->
+                <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" alt="Vịt Kho Gừng" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="font-semibold text-lg mb-2">Vịt Kho Gừng</h3>
+                    <div class="space-y-1 text-sm">
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Nhỏ:</span>
+                            <span class="font-semibold text-mekong-brown">50,000đ</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Vừa:</span>
+                            <span class="font-semibold text-mekong-brown">115,000đ</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Lớn:</span>
+                            <span class="font-semibold text-mekong-brown">160,000đ</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Món Chiên Category -->
+            <div class="food-card bg-white rounded-xl shadow-lg overflow-hidden border-2 border-transparent hover:border-mekong-gold" data-category="chien" data-mock="true">
+                <!-- Vietnamese crispy fried fish with herbs -->
+                <img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" alt="Cá Biển Chiên Sả" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="font-semibold text-lg mb-2">Cá Biển Chiên Sả</h3>
+                    <div class="space-y-1 text-sm">
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Nhỏ:</span>
+                            <span class="font-semibold text-mekong-brown">60,000đ</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Vừa:</span>
+                            <span class="font-semibold text-mekong-brown">110,000đ</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Lớn:</span>
+                            <span class="font-semibold text-mekong-brown">140,000đ</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="food-card bg-white rounded-xl shadow-lg overflow-hidden border-2 border-transparent hover:border-mekong-gold" data-category="chien" data-mock="true">
+                <!-- Vietnamese fried chicken wings with fish sauce -->
+                <img src="https://images.unsplash.com/photo-1562059390-a761a084768e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" alt="Đậu Hũ Chiên Sả Cà" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="font-semibold text-lg mb-2">Đậu Hũ Chiên Sả Cà</h3>
+                    <div class="space-y-1 text-sm">
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Nhỏ:</span>
+                            <span class="font-semibold text-mekong-brown">50,000đ</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Vừa:</span>
+                            <span class="font-semibold text-mekong-brown">110,000đ</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Lớn:</span>
+                            <span class="font-semibold text-mekong-brown">140,000đ</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Nước Uống Category -->
+            <div class="food-card bg-white rounded-xl shadow-lg overflow-hidden border-2 border-transparent hover:border-mekong-gold" data-category="nuoc" data-mock="true">
+                <!-- Fresh coconut water in glass with ice -->
+                <img src="https://images.unsplash.com/photo-1600271886742-f049cd451bba?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" alt="Trà Đá" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="font-semibold text-lg mb-2">Trà Đá</h3>
+                    <div class="space-y-1 text-sm">
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Ly:</span>
+                            <span class="font-semibold text-mekong-brown">5,000đ</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="food-card bg-white rounded-xl shadow-lg overflow-hidden border-2 border-transparent hover:border-mekong-gold" data-category="nuoc" data-mock="true">
+                <!-- Vietnamese iced coffee with condensed milk -->
+                <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" alt="Nước Suối" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="font-semibold text-lg mb-2">Nước Suối</h3>
+                    <div class="space-y-1 text-sm">
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Chai:</span>
+                            <span class="font-semibold text-mekong-brown">10,000đ</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="food-card bg-white rounded-xl shadow-lg overflow-hidden border-2 border-transparent hover:border-mekong-gold" data-category="nuoc" data-mock="true">
+                <!-- Coca Cola bottle and glass with ice -->
+                <img src="https://images.unsplash.com/photo-1581636625402-29b2a704ef13?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" alt="Nước Ngọt" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="font-semibold text-lg mb-2">Nước Ngọt</h3>
+                    <div class="space-y-1 text-sm">
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Chai:</span>
+                            <span class="font-semibold text-mekong-brown">15,000đ</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trà Sữa Category -->
+            <div class="food-card bg-white rounded-xl shadow-lg overflow-hidden border-2 border-transparent hover:border-mekong-gold" data-category="tra" data-mock="true">
+                <!-- Orange bubble tea with tapioca pearls in clear cup -->
+                <img src="https://images.unsplash.com/photo-1525385133512-2f3bdd039054?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" alt="Trà Sữa Thái Đỏ Pudding" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="font-semibold text-lg mb-2">Trà Sữa Thái Đỏ Pudding</h3>
+                    <div class="space-y-1 text-sm">
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Ly:</span>
+                            <span class="font-semibold text-mekong-brown">29,000đ</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="food-card bg-white rounded-xl shadow-lg overflow-hidden border-2 border-transparent hover:border-mekong-gold" data-category="tra" data-mock="true">
+                <!-- Green bubble tea with tapioca pearls and whipped cream -->
+                <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" alt="Trà Sữa Thái Xanh Pudding" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="font-semibold text-lg mb-2">Trà Sữa Thái Xanh Pudding</h3>
+                    <div class="space-y-1 text-sm">
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Ly:</span>
+                            <span class="font-semibold text-mekong-brown">29,000đ</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="food-card bg-white rounded-xl shadow-lg overflow-hidden border-2 border-transparent hover:border-mekong-gold" data-category="tra" data-mock="true">
+                <!-- Brown milk tea with coconut jelly toppings -->
+                <img src="https://pixabay.com/get/g9cdf0e9b0405fcc3639b813ea9015a4daf61647b5415ed7626a27df4e968e3a6b9c442d82acd9570215d0a83559709e6808ad9661c3f46e24147942b205943e3_1280.jpg" alt="Trà Sữa Báng Cốc Pudding" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="font-semibold text-lg mb-2">Trà Sữa Báng Cốc Pudding</h3>
+                    <div class="space-y-1 text-sm">
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Ly:</span>
+                            <span class="font-semibold text-mekong-brown">27,000đ</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="food-card bg-white rounded-xl shadow-lg overflow-hidden border-2 border-transparent hover:border-mekong-gold" data-category="tra" data-mock="true">
+                <!-- Purple taro bubble tea with pearls and cream -->
+                <img src="https://images.unsplash.com/photo-1515823064-d6e0c04616a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" alt="Trà Khóm Thạch Dẻo" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="font-semibold text-lg mb-2">Trà Khóm Thạch Dẻo</h3>
+                    <div class="space-y-1 text-sm">
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Ly:</span>
+                            <span class="font-semibold text-mekong-brown">29,000đ</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- @END_MAP )) -->
+
+        </div>
+
+        <!-- @STATE: noResults:boolean = false -->
+        <div id="noResults" class="hidden text-center py-12">
+            <i class="fas fa-search text-6xl text-gray-300 mb-4"></i>
+            <p class="text-xl text-gray-600">Không tìm thấy món ăn nào</p>
+            <p class="text-gray-500">Thử từ khóa khác hoặc chọn danh mục khác</p>
+        </div>
+    </main>
+    <!-- @END_COMPONENT: MenuGrid -->
+
+    <!-- @COMPONENT: ZaloOrderSection [Zalo ordering integration] -->
+    <section class="bg-gradient-to-r from-mekong-brown to-mekong-gold py-8">
+        <div class="container mx-auto px-4 text-center">
+            <div class="bg-white rounded-2xl p-6 shadow-xl max-w-md mx-auto">
+                <div class="mb-4">
+                    <i class="fas fa-mobile-alt text-4xl text-mekong-brown mb-2"></i>
+                    <h3 class="text-2xl font-bold text-mekong-brown">Đặt hàng ngay</h3>
+                    <p class="text-gray-600">Liên hệ qua Zalo để đặt món</p>
+                </div>
+                <button 
+                    onclick="window.open('https://zalo.me/0926666767', '_blank')"
+                    class="zalo-pulse w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-4 px-6 rounded-lg transition-all duration-300 flex items-center justify-center text-lg"
+                    data-event="click:openZalo"
+                    data-implementation="Should open Zalo chat with restaurant"
+                >
+                    <i class="fab fa-weixin mr-3 text-xl"></i>
+                    Đặt hàng qua Zalo
+                </button>
+                <p class="text-sm text-gray-500 mt-3">
+                    <i class="fas fa-phone mr-1"></i>
+                    0926 666 767
+                </p>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: ZaloOrderSection -->
+
+    <!-- @COMPONENT: Footer [Restaurant information and contact] -->
+    <footer class="bg-mekong-brown text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                    <h4 class="text-xl font-bold mb-4 flex items-center">
+                        <i class="fas fa-utensils mr-2"></i>
+                        Cơm Nhà - Hương vị miền Tây
+                    </h4>
+                    <p class="text-mekong-beige mb-4">
+                        Mang đến cho bạn những món ăn đậm đà hương vị miền Tây Nam Bộ. 
+                        Từng món ăn được chế biến tỉ mỉ với tình yêu và sự chân thành.
+                    </p>
+                    <div class="flex space-x-4">
+                        <i class="fab fa-facebook text-2xl hover:text-mekong-gold cursor-pointer"></i>
+                        <i class="fab fa-instagram text-2xl hover:text-mekong-gold cursor-pointer"></i>
+                        <i class="fab fa-tiktok text-2xl hover:text-mekong-gold cursor-pointer"></i>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-xl font-bold mb-4">Thông tin liên hệ</h4>
+                    <div class="space-y-3 text-mekong-beige">
+                        <div class="flex items-center">
+                            <i class="fas fa-map-marker-alt w-5 mr-3"></i>
+                            <span>Số 7 Nhâm Sĩ 4, Lý Thái Tổ Hòi Dak</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-phone w-5 mr-3"></i>
+                            <span>0926 666 767</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-clock w-5 mr-3"></i>
+                            <span>6:00 - 22:00 (Hàng ngày)</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fab fa-weixin w-5 mr-3"></i>
+                            <span>Zalo: 0926 666 767</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-mekong-gold mt-8 pt-6 text-center text-mekong-beige">
+                <p>&copy; 2024 Cơm Nhà. Tất cả quyền được bảo lưu.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- @END_COMPONENT: Footer -->
+
+    <script>
+        // TODO: Implement proper state management and data binding
+        (function() {
+            // Category filtering functionality
+            const categoryButtons = document.querySelectorAll('.category-btn');
+            const foodCards = document.querySelectorAll('.food-card');
+            const noResults = document.getElementById('noResults');
+
+            function filterByCategory(category) {
+                let visibleCount = 0;
+                
+                foodCards.forEach(card => {
+                    const cardCategory = card.dataset.category;
+                    if (category === 'all' || cardCategory === category) {
+                        card.style.display = 'block';
+                        visibleCount++;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                // Show/hide no results message
+                if (visibleCount === 0) {
+                    noResults.classList.remove('hidden');
+                } else {
+                    noResults.classList.add('hidden');
+                }
+            }
+
+            // Category button event listeners
+            categoryButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Update active button
+                    categoryButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Filter items
+                    const category = this.dataset.category;
+                    filterByCategory(category);
+                });
+            });
+
+            // Search functionality
+            const searchInput = document.getElementById('searchInput');
+            searchInput.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase().trim();
+                let visibleCount = 0;
+                
+                foodCards.forEach(card => {
+                    const dishName = card.querySelector('h3').textContent.toLowerCase();
+                    const activeCategory = document.querySelector('.category-btn.active').dataset.category;
+                    const cardCategory = card.dataset.category;
+                    
+                    const matchesSearch = dishName.includes(searchTerm);
+                    const matchesCategory = activeCategory === 'all' || cardCategory === activeCategory;
+                    
+                    if (matchesSearch && matchesCategory) {
+                        card.style.display = 'block';
+                        visibleCount++;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                // Show/hide no results message
+                if (visibleCount === 0) {
+                    noResults.classList.remove('hidden');
+                } else {
+                    noResults.classList.add('hidden');
+                }
+            });
+
+            // Smooth scroll for better UX
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // TODO: Implement Zalo deep linking with proper error handling
+            // TODO: Add loading states for better user experience
+            // TODO: Implement offline support with service worker
+            // TODO: Add analytics tracking for menu interactions
+        })();
+    </script>
+</body>
+</html>

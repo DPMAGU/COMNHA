@@ -124,6 +124,18 @@
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
+    line-clamp: 2;
     line-height: 1.3;
   }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Edge */
+  }
+
+  .hide-scrollbar {
+    -ms-overflow-style: none;  /* IE và Edge */
+    scrollbar-width: none;     /* Firefox */
+    -webkit-overflow-scrolling: touch; /* iOS smooth scroll */
+  }
 }
+

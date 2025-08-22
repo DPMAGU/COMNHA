@@ -13,246 +13,665 @@ export interface MenuItem {
 }
 
 export const menuItems: MenuItem[] = [
-  // Cơm Category
+  // Món Xào Category
   {
-    id: "com-suon-nuong",
-    name: "Cơm Sườn Nướng",
-    description: "Cơm trắng thơm, sườn nướng thơm lừng, kèm rau sống và nước mắm chua ngọt",
-    category: "com",
-    image: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    id: "rau-luoc",
+    name: "Rau Luộc",
+    description: "Đĩa rau luộc thanh đạm, xanh mướt, giữ nguyên vị ngọt tự nhiên của rau",
+    category: "xao",
+    image:  "/MONXAO/rau-luoc-2.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    prices: {
+      small: 40000,
+      medium: 60000,
+      large: 90000
+    }
+  },
+  {
+    id: "cai-thia-xao-toi",
+    name: "Cải Thìa Xào Tỏi",
+    description: "Cải thìa tươi xanh, xào cùng tỏi phi thơm lừng, giữ vị ngọt giòn tự nhiên của rau",
+    category: "xao",
+    image: "/MONXAO/cai-thia-xao-toi.png?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    prices: {
+      small: 40000,
+      medium: 60000,
+      large: 90000
+    }
+  },
+  {
+    id: "kho-qua-xao-trung",
+    name: "Khổ Qua Xào Trứng",
+    description: "Khổ qua tươi xanh, xào cùng trứng vàng ươm, hấp dẫn thơm ngon",
+    category: "xao",
+    image: "/MONXAO/kho-qua-xao-trung.png?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    prices: {
+      small: 40000,
+      medium: 60000,
+      large: 90000
+    }
+  },
+  {
+    id: "bong-cai-xao-bo",
+    name: "Bông Cải Xào Bò",
+    description: "Thịt bò mềm ngọt, xào cùng bông cải xanh giòn tươi, thấm vị đậm đà",
+    category: "xao",
+    image: "/MONXAO/bong-cai-xao-bo.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    prices: {
+      small: 80000,
+      medium: 120000,
+      large: 160000
+    }
+    
+  },
+  {
+    id: "bong-dien-dien-xao-tep",
+    name: "Bông Điên Điển Xào Tép",
+    description: "Bông điên điển vàng ươm, giòn nhẹ, xào cùng tép tươi ngọt, đậm chất miền Tây",
+    category: "xao",
+    image: "/MONXAO/bong-dien-dien-xao-tep.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
     prices: {
       small: 60000,
       medium: 80000,
-      large: 100000
-    }
-  },
-  {
-    id: "com-tam-ga-nuong",
-    name: "Cơm Tấm Gà Nướng",
-    description: "Cơm tấm thơm bùi, gà nướng mật ong, chả trứng, bì cuốn",
-    category: "com",
-    image: "https://images.unsplash.com/photo-1555126634-323283e090fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
-    prices: {
-      small: 65000,
-      medium: 85000,
-      large: 110000
-    }
-  },
-  {
-    id: "com-nieu-lap-xuong",
-    name: "Cơm Niêu Lạp Xưởng",
-    description: "Cơm niêu cháy thơm, lạp xưởng, nấm hương, rau cải",
-    category: "com",
-    image: "https://images.unsplash.com/photo-1626804475297-41608ea09aeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
-    prices: {
-      small: 70000,
-      medium: 90000,
       large: 120000
     }
   },
   {
-    id: "com-ga-xoi-mo",
-    name: "Cơm Gà Xôi Mỡ",
-    description: "Cơm nếp thơm, gà ta luộc, kèm gừng tỏi ngâm chua ngọt",
-    category: "com",
-    image: "https://images.unsplash.com/photo-1563379091339-03246963d29a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
-    prices: {
-      small: 75000,
-      medium: 95000,
-      large: 125000
-    }
-  },
-
-  // Bún/Miến Category
-  {
-    id: "bun-bo-hue",
-    name: "Bún Bò Huế",
-    description: "Bún tươi, nước dùng cay nồng, thịt bò, chả, huyết",
-    category: "bun",
-    image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
-    prices: {
-      small: 45000,
-      medium: 55000,
-      large: 65000
-    }
-  },
-  {
-    id: "bun-thit-nuong",
-    name: "Bún Thịt Nướng",
-    description: "Bún tươi, thịt nướng thơm phức, rau sống, nước mắm chua ngọt",
-    category: "bun",
-    image: "https://images.unsplash.com/photo-1559314809-0f31657daf05?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
-    prices: {
-      small: 50000,
-      medium: 65000,
-      large: 80000
-    }
-  },
-  {
-    id: "bun-ca-loc-nuong",
-    name: "Bún Cá Lóc Nướng",
-    description: "Bún tươi, cá lóc nướng lá chuối, rau thơm miền Tây",
-    category: "bun",
-    image: "https://images.unsplash.com/photo-1585032226651-759b368d7246?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
-    prices: {
-      small: 60000,
-      medium: 75000,
-      large: 95000
-    }
-  },
-  {
-    id: "mien-ga",
-    name: "Miến Gà",
-    description: "Miến dong tươi, gà ta ninh nhừ, nước dùng trong vắt",
-    category: "bun",
-    image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    id: "ca-tim-xao-toi",
+    name: "Cà Tím Xào Tỏi",
+    description: "Cà tím mềm ngọt, thấm đẫm hương vị tỏi phi thơm lừng",
+    category: "xao",
+    image: "/MONXAO/ca-tim-xao-toi.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
     prices: {
       small: 40000,
-      medium: 50000,
-      large: 60000
+      medium: 60000,
+      large: 90000
+    }
+  },
+  {
+    id: "muc-xao-chua-ngot",
+    name: "Mực Xào Chua Ngọt",
+    description: "Mực tươi giòn ngọt, xào cùng rau củ tươi và sốt chua ngọt đậm đà",
+    category: "xao",
+    image: "/MONXAO/muc-xao-chua-ngot.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    prices: {
+      small: 90000,
+      medium: 120000,
+      large: 160000
+    }
+  },
+  {
+    id: "bong-thien-ly-xao-thit-bo",
+    name: "Bông Thiên Lý Xào Thịt Bò",
+    description: "Bông thiên lý xanh non, giòn ngọt, xào cùng thịt bò mềm thơm",
+    category: "xao",
+    image: "/MONXAO/thit-bo-xao-bong-thien-ly.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    prices: {
+      small: 90000,
+      medium: 120000,
+      large: 160000
+    }
+  },
+  // Món Kho Category
+  {
+    id: "ba-roi-heo-kho-tieu",
+    name: "Ba Rọi Heo Kho Tiêu",
+    description: "Thịt ba rọi kho cùng tiêu xanh, béo mềm, cay nồng, đưa cơm.",
+    category: "kho",
+    image: "/MONKHO/ba-roi-kho-tieu.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    prices: {
+      small: 60000,
+      medium: 115000,
+      large: 160000
+    }
+  },
+  {
+    id: "ca-hu-kho-tieu",
+    name: "Cá Hú Kho Tiêu",
+    description: "Cá hú kho liu riu với tiêu cay thơm lừng, ăn với cơm nêu rất ngon",
+    category: "kho",
+    image: "/MONKHO/ca-hu-kho.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    prices: {
+      small: 60000,
+      medium: 115000,
+      large: 160000
+    }
+  },
+  {
+    id: "ca-loc-kho-tieu",
+    name: "Cá Lóc Kho Tiêu",
+    description: "Cá lóc kho liu riu với tiêu cay thơm lừng",
+    category: "kho",
+    image: "/MONKHO/ca-loc-kho.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    prices: {
+      small: 60000,
+      medium: 115000,
+      large: 160000
+    }
+  },
+  {
+    id: "ca-ro-kho-tieu",
+    name: "Cá Rô Kho Tiêu",
+    description: "Cá rô kho liu riu với tiêu cay thơm lừng",
+    category: "kho",
+    image: "/MONKHO/ca-ro-kho.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    prices: {
+      small: 60000,
+      medium: 115000,
+      large: 160000
+    }
+  },
+  {
+    id: "vit-kho-rung",
+    name: "Vịt Kho Rừng",
+    description: "Thịt vịt kho mềm, thơm vị gừng, đậm đà đưa cơm",
+    category: "kho",
+    image: "/MONKHO/vit-kho-rung.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    prices: {
+      small: 60000,
+      medium: 115000,
+      large: 160000
+    }
+  },
+  {
+    id: "ga-xao-sa-ot",
+    name: "Gà Xào Sả Ớt",
+    description: "Thịt gà xào săn, thơm sả ớt, hấp dẫn khó cưỡng.",
+    category: "kho",
+    image: "/MONKHO/ga-xao-sa-ot.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    prices: {
+      small: 60000,
+      medium: 115000,
+      large: 160000
+    }
+  },
+  {
+    id: "mam-chung",
+    name: "Mắm Chưng",
+    description: "Mắm chưng là một món ăn đặc trưng của miền Tây, kết hợp với thịt heo xay, trứng, gia vị",
+    category: "kho",
+    image: "/MONKHO/mam-chung.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    prices: {
+      small: 60000,
+      medium: 115000,
+      large: 160000
+    }
+  },
+  {
+    id: "ca-he-kho-reu",
+    name: "Cá He Kho Rệu",
+    description: "Cá he kho rệu dân dã, béo mềm, vị mặn mà đưa cơm",
+    category: "kho",
+    image: "/MONKHO/ca-he-kho-reu.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    prices: {
+      small: 60000,
+      medium: 115000,
+      large: 160000
+    }
+  },
+  {
+    id: "ca-bien-kho-ca",
+    name: "Cá Biển Kho Cà",
+    description: "Cá biển kho với cà chua, vị mặn mà xen chút chua nhẹ, ăn kèm cơm nóng ngon hết sẩy",
+    category: "kho",
+    image: "/MONKHO/ca-bien-kho-ca.png?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    prices: {
+      small: 60000,
+      medium: 115000,
+      large: 160000
+    }
+  },
+  {
+    id: "thit-kho-hot-vit",
+    name: "Thịt Kho Hột Vịt",
+    description: "Thịt ba rọi kho hột vịt, béo thơm, nước màu óng ánh, chan cơm nóng ăn no mà nhớ hoài vị quê",
+    category: "kho",
+    image: "/MONKHO/thit-kho-hot-vit.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    prices: {
+      small: 60000,
+      medium: 115000,
+      large: 160000
+    }
+  },
+  {
+    id: "tom-kho-to",
+    name: "Tôm Kho Tộ",
+    description: "Tôm kho tộ, thịt chắc ngọt, rim mặn mà",
+    category: "kho",
+    image: "/MONKHO/tom-kho-to.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    prices: {
+      small: 60000,
+      medium: 115000,
+      large: 160000
+    }
+  },
+  {
+    id: "luon-kho-sa-ot",
+    name: "Lươn Kho Sả Ớt",
+    description: "Thịt lươn béo mềm, quyện vị cay nồng của sả ớt, mặn ngọt hài hòa",
+    category: "kho",
+    image: "/MONKHO/luon-kho-sa-ot.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    prices: {
+      small: 60000,
+      medium: 115000,
+      large: 160000
+    }
+  },
+  {
+    id: "tep-ram-man",
+    name: "Tép Ram Mặn",
+    description: "Tép đồng ram mặn, rim săn chắc, mằn mặn đậm đà",
+    category: "kho",
+    image: "/MONKHO/tep-ram-man.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    prices: {
+      small: 60000,
+      medium: 115000,
+      large: 160000
+    }
+  },
+  {
+    id: "ech-xao-sa-ot",
+    name: "Ếch Xào Sả ",
+    description: "Thịt ếch săn chắc, xào sả ớt cay nồng thơm lừng, ngon cơm hết ý",
+    category: "kho",
+    image: "/MONKHO/ech-xao-sa-ot.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    prices: {
+      small: 60000,
+      medium: 115000,
+      large: 160000
+    }
+  },
+  {
+    id: "suon-heo-ram-man",
+    name: "Sườn Heo Ram Mặn",
+    description: "Sườn heo rim mặn ngọt, đậm đà",
+    category: "kho",
+    image: "/MONKHO/suon-heo-ram-man.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    prices: {
+      small: 60000,
+      medium: 115000,
+      large: 160000
+    }
+  },
+  // Lẩu Mắm Category
+  {
+    id: "lau-mam",
+    name: "Lẩu Mắm Đặc Biệt",
+    description: "Hương vị lẩu đậm đà, ăn kèm thịt, tôm, cá và rau",
+    category: "laumam",
+    image: "/MONKHO/lau-mam.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    prices: {
+      small: 220000,
+      medium: 269000,
+      large: 350000
     }
   },
 
-  // Món Xào Category
+  // Món Canh Category
   {
-    id: "rau-muong-xao-toi",
-    name: "Rau Muống Xào Tỏi",
-    description: "Rau muống tươi xào tỏi phi thơm, giòn ngon",
-    category: "xao",
-    image: "https://images.unsplash.com/photo-1512058564366-18510be2db19?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    id: "kho-qua-don-thit",
+    name: "Khổ Qua Dồn Thịt",
+    description: "Khổ qua dồn thịt được hầm mềm, đậm đà, bổ dưỡng",
+    category: "canh",
+    image: "/MONCANH/kho-qua-don-thit.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
     prices: {
-      small: 35000,
-      medium: 45000,
-      large: 55000
-    }
-  },
-  {
-    id: "bo-xao-sa-ot",
-    name: "Bò Xào Sả Ớt",
-    description: "Thịt bò tươi xào sả ớt cay nồng, thơm lừng",
-    category: "xao",
-    image: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
-    prices: {
-      small: 80000,
+      small: 60000,
       medium: 110000,
-      large: 140000
+      large: 150000
     }
   },
   {
-    id: "tom-rang-me",
-    name: "Tôm Rang Me",
-    description: "Tôm su tươi rang me chua ngọt, đậm đà hương vị miền Tây",
-    category: "xao",
-    image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    id: "canh-ca-loc-nau-bau",
+    name: "Canh Cá Lóc Nấu ",
+    description: "Cá lóc tươi ngọt, nấu cùng bầu non mềm, thơm ngon",
+    category: "canh",
+    image: "/MONCANH/canh-ca-loc-nau-bau.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
     prices: {
-      small: 120000,
-      medium: 160000,
+      small: 60000,
+      medium: 110000,
+      large: 150000
+    }
+  },
+  {
+    id: "canh-chua-ca-bop",
+    name: "Canh Chua Cá Bóp",
+    description: "Cá bóp tươi dai,canh chua đậm vị thơm ngon",
+    category: "canh",
+    image: "/MONCANH/canh-chua-ca-bop.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    prices: {
+      small: 90000,
+      medium: 150000,
+      large: 220000
+    }
+  },
+  {
+    id: "canh-chua-ca-tam",
+    name: "Canh Chua Cá Tầm",
+    description: "Cá tầm tươi ngon, kết hợp nước dùng chua ngọt",
+    category: "canh",
+    image: "/MONCANH/canh-chua-ca-tam.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    prices: {
+      small: 90000,
+      medium: 150000,
+      large: 220000
+    }
+  },
+ 
+  {
+    id: "canh-chua-ca-bong-lao",
+    name: "Canh Chua Cá Bông Lao ( Đặc biệt)",
+    description: "Cá bông lao tươi ngon, kết hợp nước dùng chua ngọt",
+    category: "canh",
+    image: "/MONCANH/kho-qua-don-thit.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    prices: {
+      small: 90000,
+      medium: 150000,
       large: 200000
     }
   },
   {
-    id: "ca-kho-to",
-    name: "Cá Kho Tộ",
-    description: "Cá basa kho nước dừa, đậm đà đúng điệu miền Tây",
-    category: "xao",
-    image: "https://images.unsplash.com/photo-1585032226651-759b368d7246?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    id: "canh-cai-xoang-nau-thit-bam",
+    name: "Canh Cải Xoang Thịt Bầm",
+    description: "Canh thanh mát từ cải xoong tươi kết hợp thịt bằm mềm",
+    category: "canh",
+    image: "/MONCANH/canh-xa-lach-xoong-thit-bam.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
     prices: {
-      small: 90000,
-      medium: 120000,
+      small: 60000,
+      medium: 110000,
       large: 150000
     }
   },
+  {
+    id: "canh-chua-ca-loc",
+    name: "Canh Chua Cá Lóc",
+    description: "Cá lóc tươi ngon, kết hợp nước dùng chua ngọt, đậm đà",
+    category: "canh",
+    image: "/MONCANH/canh-chua-ca-loc.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    prices: {
+      small: 60000,
+      medium: 110000,
+      large: 150000
+    }
+  },
+  {
+    id: "canh-khoai-mo",
+    name: "Canh Khoai Mỡ ",
+    description: "khoai mỡ ngọt bùi hòa quyện cùng thịt bầm thơm ngon",
+    category: "canh",
+    image: "/MONCANH/canh-khoai-mo.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    prices: {
+      small: 60000,
+      medium: 110000,
+      large: 150000
+    }
+  },
+  {
+    id: "canh-chua-ca-hu-ca-ba-sa",
+    name: "Canh Chua Cá Hú - Cá Ba Sa",
+    description: "Cá hú tươi, kết hợp nước dùng chua ngọt, đậm đà",
+    category: "canh",
+    image: "/MONCANH/canh-chua-ca-hu.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    prices: {
+      small: 60000,
+      medium: 110000,
+      large: 150000
+    }
+  },
+  {
+    id: "cha-ca-thac-lac-nau-kho-qua",
+    name: "Chả Cá Thác Lác Nấu Khổ Qua ",
+    description: "Vị đắng nhẹ của khổ qua hòa quyện cùng vị ngọt dai của chả cá thác lác",
+    category: "canh",
+    image: "/MONCANH/cha-ca-that-lat.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    prices: {
+      small: 60000,
+      medium: 110000,
+      large: 150000
+    }
+  },
+  {
+    id: "canh-chua-ca-chim",
+    name: "Canh Chua Cá Chim",
+    description: "Thịt cá chim béo ngọt,kết hợpcanh chua đậm đà",
+    category: "canh",
+    image: "/MONCANH/canh-chua-ca-chim.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    prices: {
+      small: 60000,
+      medium: 110000,
+      large: 150000
+    }
+  },
+  
 
-  // Nước Uống Category
+  // Món Chiên Category
   {
-    id: "ca-phe-sua-da",
-    name: "Cà Phê Sữa Đá",
-    description: "Cà phê rang xay truyền thống, sữa đặc ngọt ngào",
-    category: "nuoc",
-    image: "https://images.unsplash.com/photo-1561047029-3000c68339ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    id: "suon-heo-chien-sa",
+    name: "Sườn Heo Chiên Sả",
+    description: "Sườn chiên mềm ngon đậm vị, cực đưa cơm",
+    category: "chien",
+    image: "MONCHIEN/suon-heo-chien-sa.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
     prices: {
-      regular: 25000
+      small: 60000,
+        medium: 110000,
+        large: 140000
+    }
+  },
+  
+  {
+    id: "ca-ba-sa-chien-sa",
+    name: "Cá Ba Sa Chiên Sả",
+    description: "Cá ba sa mềm , thơm mùi sả đặc trưng",
+    category: "chien",
+    image: "/MONCHIEN/ca-ba-sa-chien-sa.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    prices: {
+      small: 60000,
+        medium: 110000,
+        large: 140000
     }
   },
   {
-    id: "nuoc-dua-tuoi",
-    name: "Nước Dừa Tươi",
-    description: "Nước dừa tươi mát, ngọt tự nhiên từ miền Tây",
-    category: "nuoc",
-    image: "https://images.unsplash.com/photo-1559181567-c3190ca9959b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    id: "ca-dieu-hong-chien-sot-ca",
+    name: "Cá Điêu Hồng Chiên Sốt Cà",
+    description: "Cá chiên giòn, sốt cà chua đậm đà, chua ngọt hài hòa",
+    category: "chien",
+    image: "MONCHIEN/ca-dieu-hong-chien-sot-ca.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
     prices: {
-      regular: 20000
+      small: 60000,
+        medium: 110000,
+        large: 140000
     }
   },
   {
-    id: "tra-da-chanh",
-    name: "Trà Đá Chanh",
-    description: "Trà đá mát lạnh, chanh tươi chua ngọt",
-    category: "nuoc",
-    image: "https://images.unsplash.com/photo-1571167960056-dd4f6df7e6c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    id: "cha-ca-thac-lac-chien",
+    name: "Chả Cá Thác Lác Chiên",
+    description: "Miếng chả cá dai, nóng hổi và thơm phức",
+    category: "chien",
+    image: "MONCHIEN/cha-ca-thac-lac-chien.png?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    prices: {
+      small: 60000,
+        medium: 110000,
+        large: 140000
+    }
+  },
+  {
+    id: "ba-roi-chien-sa",
+    name: "Ba Rọi Chiên Sả",
+    description: "Thịt bên ngoài giòn, bên trong mềm ngọt thơm ngon",
+    category: "chien",
+    image: "MONCHIEN/ba-roi-chien-sa.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    prices: {
+      small: 60000,
+        medium: 110000,
+        large: 140000
+    }
+  },
+  {
+    id: "kho-ca-loc-chien",
+    name: "Khô Cá Lóc Chiên",
+    description: "Khô chiên vàng ươm, ăn cùng cơm rất ngon",
+    category: "chien",
+    image: "MONCHIEN/kho-ca-loc-chien.jpeg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    prices: {
+      small: 60000,
+        medium: 110000,
+        large: 140000
+    }
+  },
+  {
+    id: "kho-ca-sac-chien",
+    name: "Khô Cá Sặc Chiên",
+    description: "Khô chiên vàng ươm, ăn cùng cơm rất ngon",
+    category: "chien",
+    image: "MONCHIEN/kho-ca-sac-chien.png?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    prices: {
+      small: 60000,
+        medium: 110000,
+        large: 140000
+    }
+  },
+  {
+    id: "ca-bien-chien-sa",
+    name: "Cá Biển Chiên Sả",
+    description: "Cá chiên vàng ươm, ăn cùng cơm rất ngon",
+    category: "chien",
+    image: "MONCHIEN/ca-huong-chien-sa.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    prices: {
+      small: 60000,
+        medium: 110000,
+        large: 140000
+    }
+  },
+  {
+    id: "trung-chien-ca",
+    name: "Trứng Chiên Cà",
+    description: "Trứng chiên với cà chua, thơm ngon",
+    category: "chien",
+    image: "/MONCHIEN/trung-chien-ca.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    prices: {
+      medium: 40000,
+      large: 90000
+    }
+  },
+  // Giải Khát Category
+  {
+    id: "tra-da",
+    name: "Trà Đá",
+    description: "",
+    category: "giaikhat",
+    image: "/GIAIKHAT/tra-da.png?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    prices: {
+      regular: 2000
+    }
+  },
+  {
+    id: "nuoc-suoi",
+    name: "Nước Suối",
+    description: "",
+    category: "giaikhat",
+    image: "/GIAIKHAT/nuoc-suoi.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    prices: {
+      regular: 10000
+    }
+  },
+  {
+    id: "nuoc-mat",
+    name: "Nước Mát",
+    description: "",
+    category: "giaikhat",
+    image: "/GIAIKHAT/nuoc-mat.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    prices: {
+      regular: 10000
+    }
+  },
+  {
+    id: "nuoc-ngot",
+    name: "Nước Ngọt",
+    description: "",
+    category: "giaikhat",
+    image: "/GIAIKHAT/nuoc-ngot.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
     prices: {
       regular: 15000
     }
   },
   {
-    id: "nuoc-mia-tuoi",
-    name: "Nước Mía Tươi",
-    description: "Nước mía ép tươi, ngọt thanh không pha trộn",
-    category: "nuoc",
-    image: "https://images.unsplash.com/photo-1597318043559-2d9b28638bb2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    id: "nuoc-ep-cam",
+    name: "Nước Ép Cam",
+    description: "",
+    category: "giaikhat",
+    image: "/GIAIKHAT/ep-cam.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    prices: {
+      regular: 20000
+    }
+  },
+  {
+    id: "nuoc-ep-dua-hau",
+    name: "Nước Ép Dưa Hấu",
+    description: "",
+    category: "giaikhat",
+    image: "/GIAIKHAT/dua-hau.jpeg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    prices: {
+      regular: 20000
+    }
+  },
+  {
+    id: "bia-corona",
+    name: "Bia Corona 250ml",
+    description: "",
+    category: "giaikhat",
+    image: "/GIAIKHAT/bia-corona.jpeg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    prices: {
+      regular: 36000
+    }
+  },
+  {
+    id: "bia-heineken",
+    name: "Bia Heineken 250ml",
+    description: "",
+    category: "giaikhat",
+    image: "/GIAIKHAT/bia-haineken.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    prices: {
+      regular: 22000
+    }
+  },
+  {
+    id: "bia-blanc",
+    name: "Bia BlanC 1664",
+    description: "",
+    category: "giaikhat",
+    image: "/GIAIKHAT/bia-blanc.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    prices: {
+      regular: 22000
+    }
+  },
+  // Món Thêm Category
+  {
+    id: "com-trang",
+    name: "Cơm Trắng Tô",
+    description: "Dùng chung với món mặn và canh",
+    category: "monthem",
+    image: "/MONTHEM/com-trang.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    prices: {
+      regular: 20000
+    }
+  },
+  {
+    id: "com-nieu",
+    name: "Cơm Niêu ",
+    description: "Dùng chung với món mặn và canh",
+    category: "monthem",
+    image: "/MONTHEM/com-nieu.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
     prices: {
       regular: 18000
     }
   },
-
-  // Tráng Miệng Category
-  {
-    id: "che-ba-mau",
-    name: "Chè Ba Màu",
-    description: "Chè đậu xanh, đậu đỏ, thạch rau câu, nước cốt dừa",
-    category: "trangmieng",
-    image: "https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
-    prices: {
-      regular: 30000
-    }
-  },
-  {
-    id: "banh-chuoi-nuong",
-    name: "Bánh Chuối Nướng",
-    description: "Bánh chuối nướng lá chuối, thơm ngon truyền thống",
-    category: "trangmieng",
-    image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
-    prices: {
-      regular: 35000
-    }
-  },
-  {
-    id: "che-thai-do",
-    name: "Chè Thái Đỏ",
-    description: "Chè thái đỏ mát lạnh, đậu phộng rang, nước cốt dừa",
-    category: "trangmieng",
-    image: "https://images.unsplash.com/photo-1567735053062-ee66a4512ee2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
-    prices: {
-      regular: 28000
-    }
-  },
-  {
-    id: "banh-flan",
-    name: "Bánh Flan",
-    description: "Bánh flan mềm mịn, caramel đậm đà",
-    category: "trangmieng",
-    image: "https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
-    prices: {
-      regular: 25000
-    }
-  }
 ];
 
 export const categories = [
   { id: 'all', name: 'Tất cả' },
-  { id: 'com', name: 'Cơm' },
-  { id: 'bun', name: 'Bún/Miến' },
+  { id: 'kho', name: 'Món Kho' },
   { id: 'xao', name: 'Món Xào' },
-  { id: 'nuoc', name: 'Nước Uống' },
-  { id: 'trangmieng', name: 'Tráng Miệng' }
+  { id: 'laumam', name: 'Lẩu Mắm' },
+  { id: 'canh', name: 'Món Canh' },
+  { id: 'chien', name: 'Món Chiên' },
+  { id: 'monthem', name: 'Món Thêm' },
+   { id: 'giaikhat', name: 'Giải Khát' }
 ];

@@ -840,7 +840,7 @@ export const menuItems: MenuItem[] = [
     name: "Ba Rọi Chiên Sả",
     description: "1 Phần bao gồm : Cơm + Món mặn + Súp",
     category: "comdia",
-    image: "MONCHIEN/ba-roi-chien-sa.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    image: "MONCHIEN/ba_roi_chien_sa.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
     prices: {
        regular: 40000
     }
@@ -870,7 +870,7 @@ export const menuItems: MenuItem[] = [
     name: "Cá Biển Chiên Sả",
     description: "1 Phần bao gồm : Cơm + Món mặn + Súp",
     category: "comdia",
-    image: "MONCHIEN/ca-huong-chien-sa.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    image: "MONCHIEN/ca-huong-chien-sa-5.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
     prices: {
        regular: 40000
     }

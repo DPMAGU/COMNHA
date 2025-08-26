@@ -1,54 +1,123 @@
 import React, { useState, useMemo, useRef } from 'react';
 import { menuItems, categories, MenuItem } from '../data/menuData';
 
-// Component Menu chính
 export default function Menu() {
-  // State lưu category đang chọn, mặc định 'all' (tất cả)
+  // State lưu category đang chọn, mặc định là 'all' (tất cả)
   const [activeCategory, setActiveCategory] = useState<string>('all');
   // State lưu từ khóa tìm kiếm
   const [searchTerm, setSearchTerm] = useState<string>('');
-  const [visibleCount, setVisibleCount] = useState(12); // Hiển thị 12 món đầu tiên
+  // State lưu số lượng món ăn hiển thị (mặc định 12)
+  const [visibleCount, setVisibleCount] = useState(12);
 
   // Dữ liệu ảnh cho slider
   const images = [
+    
     {
       src: '/anh.jpg',
       caption: (
         <div>
+          
           <div className="flex justify-center space-x-4 text-cream/80 text-base mb-2">
             <p>Món ngon đa dạng - Giá cả bình dân</p>
           </div>
           <div className="flex justify-center space-x-6 text-cream/60">
-            {/* Link gọi điện */}
             <a href="tel:0708866767" className="hover:text-white transition-colors">
               <i className="fas fa-phone mr-2"></i>070 286 6767
             </a>
-            {/* Link Zalo */}
-            <a href="https://zalo.me/0702866767" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+            <a
+              href="https://zalo.me/0702866767"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white transition-colors"
+            >
               <i className="fab fa-facebook-messenger mr-2"></i>Zalo
             </a>
           </div>
-          <div className="text-center mt-2 text-cream/70 text-sm italic">
-            Giờ hoạt động: 9h - 20h
-          </div>
+          <div className="text-center mt-2 text-cream/70 text-sm italic">Giờ hoạt động: 9h - 20h</div>
         </div>
       ),
     },
-    { src: 'ANH-QUAN/anh-ngoai-san.jpg', caption: 'Chỗ để xe rộng rãi - xe du lịch xe khách đậu thoải mái' },
-    { src: 'ANH-QUAN/khong-gian-ben-trong.jpg', caption: 'Không gian ấm cúng, mát mẻ' },
-    { src: 'ANH-QUAN/phong-lanh.jpg', caption: 'Phòng lạnh mát mẻ - Phục vụ tận tình' },
+    { src: 'ANH-QUAN/anh-ngoai-san.jpg',  caption: (
+      <div>
+
+        <div className="flex justify-center space-x-4 text-cream/80 text-base mb-2">
+          <p>Chỗ để xe rộng rãi - xe khách đậu thoải mái</p>
+        </div>
+        <div className="flex justify-center space-x-6 text-cream/60">
+          <a href="tel:0708866767" className="hover:text-white transition-colors">
+            <i className="fas fa-phone mr-2"></i>070 286 6767
+          </a>
+          <a
+            href="https://zalo.me/0702866767"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-white transition-colors"
+          >
+            <i className="fab fa-facebook-messenger mr-2"></i>Zalo
+          </a>
+        </div>
+        <div className="text-center mt-2 text-cream/70 text-sm italic">Giờ hoạt động: 9h - 20h</div>
+      </div>
+    ),
+    },
+    { src: 'ANH-QUAN/khong-gian-ben-trong.jpg', caption: (
+      <div>
+
+        <div className="flex justify-center space-x-4 text-cream/80 text-base mb-2">
+          <p>Không gian mở - ấm cúng thoải mái</p>
+        </div>
+        <div className="flex justify-center space-x-6 text-cream/60">
+          <a href="tel:0708866767" className="hover:text-white transition-colors">
+            <i className="fas fa-phone mr-2"></i>070 286 6767
+          </a>
+          <a
+            href="https://zalo.me/0702866767"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-white transition-colors"
+          >
+            <i className="fab fa-facebook-messenger mr-2"></i>Zalo
+          </a>
+        </div>
+        <div className="text-center mt-2 text-cream/70 text-sm italic">Giờ hoạt động: 9h - 20h</div>
+      </div>
+    ),
+    },
+    { src: 'ANH-QUAN/phong-lanh.jpg', caption: (
+      <div>
+
+        <div className="flex justify-center space-x-4 text-cream/80 text-base mb-2">
+          <p>Phòng lạnh hiện đại, rộng rãi,không gian riêng tư và thoải mái cho các đoàn khách</p>
+        </div>
+        <div className="flex justify-center space-x-6 text-cream/60">
+          <a href="tel:0708866767" className="hover:text-white transition-colors">
+            <i className="fas fa-phone mr-2"></i>070 286 6767
+          </a>
+          <a
+            href="https://zalo.me/0702866767"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-white transition-colors"
+          >
+            <i className="fab fa-facebook-messenger mr-2"></i>Zalo
+          </a>
+        </div>
+        <div className="text-center mt-2 text-cream/70 text-sm italic">Giờ hoạt động: 9h - 20h</div>
+      </div>
+    ),
+    },
   ];
 
-  // State lưu index ảnh đang hiển thị trên slider
+  // State lưu index của ảnh đang hiển thị trên slider
   const [currentIndex, setCurrentIndex] = useState(0);
-  // Ref tới div chứa slider để điều khiển scroll
+  // Ref tới container slider để điều khiển scroll
   const sliderRef = useRef<HTMLDivElement>(null);
 
-  // Hàm scroll slider tới ảnh tại vị trí index
+  // Hàm cuộn slider đến ảnh ở vị trí index
   const scrollToIndex = (index: number) => {
     const container = sliderRef.current;
     if (container) {
-      const width = container.clientWidth; // chiều rộng slider (1 ảnh chiếm hết chiều rộng)
+      const width = container.clientWidth; // chiều rộng container = chiều rộng 1 ảnh
       container.scrollTo({
         left: width * index,
         behavior: 'smooth',
@@ -56,29 +125,29 @@ export default function Menu() {
     }
   };
 
-  // Nút scroll sang trái
+  // Hàm xử lý click nút trái, chuyển ảnh trước đó
   const scrollLeft = () => {
     const newIndex = currentIndex === 0 ? images.length - 1 : currentIndex - 1;
     setCurrentIndex(newIndex);
     scrollToIndex(newIndex);
   };
 
-  // Nút scroll sang phải
+  // Hàm xử lý click nút phải, chuyển ảnh kế tiếp
   const scrollRight = () => {
     const newIndex = currentIndex === images.length - 1 ? 0 : currentIndex + 1;
     setCurrentIndex(newIndex);
     scrollToIndex(newIndex);
   };
 
-  // Lọc danh sách món ăn dựa trên category và từ khóa tìm kiếm
+  // Lọc món ăn theo category và từ khóa tìm kiếm
   const filteredItems = useMemo(() => {
     let filtered = menuItems;
     if (activeCategory !== 'all') {
-      filtered = filtered.filter(item => item.category === activeCategory);
+      filtered = filtered.filter((item) => item.category === activeCategory);
     }
     if (searchTerm) {
       filtered = filtered.filter(
-        item =>
+        (item) =>
           item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
           item.description.toLowerCase().includes(searchTerm.toLowerCase())
       );
@@ -86,15 +155,15 @@ export default function Menu() {
     return filtered;
   }, [activeCategory, searchTerm]);
 
-  // Các món hiển thị (có giới hạn số lượng)
+  // Lấy số lượng món ăn hiển thị giới hạn
   const visibleItems = filteredItems.slice(0, visibleCount);
 
-  // Format giá tiền theo chuẩn VNĐ
+  // Format tiền VNĐ
   const formatPrice = (price: number) => {
     return new Intl.NumberFormat('vi-VN').format(price) + 'đ';
   };
 
-  // Hiển thị giá theo từng size hoặc giá cố định
+  // Hiển thị giá món ăn (có thể nhiều size)
   const renderPrices = (item: MenuItem) => {
     if (item.prices.regular) {
       return (
@@ -196,11 +265,23 @@ export default function Menu() {
                 <i className="fas fa-chevron-left"></i>
               </button>
 
-              {/* Container chứa ảnh */}
-              <div ref={sliderRef} className="flex transition-all duration-500 ease-in-out overflow-hidden w-full">
+              {/* Container chứa ảnh slider */}
+              <div
+                ref={sliderRef}
+                className="flex transition-all duration-500 ease-in-out overflow-hidden w-full"
+                style={{ scrollSnapType: 'x mandatory', scrollBehavior: 'smooth' }}
+              >
                 {images.map(({ src, caption }, index) => (
-                  <div key={index} className="flex-shrink-0 w-full">
-                    <img src={src} alt={`Slide ${index + 1}`} className="w-full h-64 md:h-[400px] object-cover" />
+                  <div
+                    key={index}
+                    className="flex-shrink-0 w-full"
+                    style={{ scrollSnapAlign: 'start' }}
+                  >
+                    <img
+                      src={src}
+                      alt={`Slide ${index + 1}`}
+                      className="w-full h-64 md:h-[400px] object-cover"
+                    />
                     {/* Chú thích ảnh */}
                     <div className="text-center text-golden italic mt-2">{caption}</div>
                   </div>
@@ -216,6 +297,26 @@ export default function Menu() {
                 <i className="fas fa-chevron-right"></i>
               </button>
             </div>
+             {/* Indicator dots - chấm nhỏ dưới ảnh, căn giữa */}
+              <div className="flex justify-center space-x-3 mt-3">
+                {images.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => {
+                      setCurrentIndex(index);
+                      scrollToIndex(index);
+                    }}
+                    className={`w-3 h-3 rounded-full transition-colors ${
+                      currentIndex === index ? 'bg-red-500' : 'bg-yellow-400'
+                    }`}
+                    aria-label={`Slide ${index + 1}`}
+                  />
+                ))}
+              </div>
+            
+
+
+
           </section>
 
           {/* Phần hiển thị menu món ăn */}
@@ -261,38 +362,44 @@ export default function Menu() {
             )}
           </section>
 
-{/* Thông tin quán */}
-<section className="mb-12">
-  <div className="bg-wood-light/40 backdrop-blur-sm rounded-xl p-8 border border-golden/20">
-    <h3 className="text-2xl font-bold text-golden mb-6 text-center">THÔNG TIN QUÁN</h3>
-    <div className="grid md:grid-cols-2 gap-8">
-      <div>
-        <h4 className="text-lg font-semibold text-golden mb-4 flex items-center">
-          <i className="fas fa-map-marker-alt mr-2"></i>Địa chỉ
-        </h4>
-        <p className="text-cream/80 mb-4">Số 10 Nhánh Số 4, Lý Thái Tổ nối dài, P. Long Xuyên, TP. An Giang</p>
+          {/* Thông tin quán */}
+          <section className="mb-12">
+            <div className="bg-wood-light/40 backdrop-blur-sm rounded-xl p-8 border border-golden/20">
+              <h3 className="text-2xl font-bold text-golden mb-6 text-center">THÔNG TIN QUÁN</h3>
+              <div className="grid md:grid-cols-2 gap-8">
+                <div>
+                  <h4 className="text-lg font-semibold text-golden mb-4 flex items-center">
+                    <i className="fas fa-map-marker-alt mr-2"></i>Địa chỉ
+                  </h4>
+                  <p className="text-cream/80 mb-4">
+                    Số 10 Nhánh Số 4, Lý Thái Tổ nối dài, P. Long Xuyên, TP. An Giang
+                  </p>
 
-        <h4 className="text-lg font-semibold text-golden mb-4 flex items-center">
-          <i className="fas fa-clock mr-2"></i>Giờ mở cửa
-        </h4>
-        <p className="text-cream/80">Thứ 2 - Chủ nhật: 08:00 - 20:00</p>
-      </div>
-      <div>
-        <h4 className="text-lg font-semibold text-golden mb-4 flex items-center">
-          <i className="fas fa-phone mr-2"></i>Liên hệ
-        </h4>
-        <p className="text-cream/80 mb-4">
-          <a href="tel:0708866767" className="hover:text-golden transition-colors">070 286 6767</a>
-        </p>
+                  <h4 className="text-lg font-semibold text-golden mb-4 flex items-center">
+                    <i className="fas fa-clock mr-2"></i>Giờ mở cửa
+                  </h4>
+                  <p className="text-cream/80">Thứ 2 - Chủ nhật: 08:00 - 20:00</p>
+                </div>
+                <div>
+                  <h4 className="text-lg font-semibold text-golden mb-4 flex items-center">
+                    <i className="fas fa-phone mr-2"></i>Liên hệ
+                  </h4>
+                  <p className="text-cream/80 mb-4">
+                    <a href="tel:0708866767" className="hover:text-golden transition-colors">
+                      070 286 6767
+                    </a>
+                  </p>
 
-        <h4 className="text-lg font-semibold text-golden mb-4 flex items-center">
-          <i className="fas fa-utensils mr-2"></i>Đặc sản
-        </h4>
-        <p className="text-cream/80">Món ăn miền Tây, hương vị truyền thống, tươi ngon mỗi ngày</p>
-      </div>
-    </div>
-  </div>
-</section>
+                  <h4 className="text-lg font-semibold text-golden mb-4 flex items-center">
+                    <i className="fas fa-utensils mr-2"></i>Đặc sản
+                  </h4>
+                  <p className="text-cream/80">
+                    Món ăn miền Tây, hương vị truyền thống, tươi ngon mỗi ngày
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
 
 {/* Lời chào kết */}
 <section className="text-center mb-12">

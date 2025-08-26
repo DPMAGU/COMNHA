@@ -204,9 +204,9 @@ export default function Menu() {
         <div className="container mx-auto px-3 md:px-4 py-3">
           {/* Logo và nút đặt món qua Zalo */}
           <div className="flex items-center justify-between mb-3">
-            <div className="flex items-center space-x-0">
-              <img src="/logo-comnha.png" alt="Logo cơm" className="w-12 h-12 object-contain -mr-2" />
-              <h1 className="text-golden text-xl font-bold">CƠM NHÀ</h1>
+            <div className="flex items-center space-x-1">
+              <img src="/LOGO-COM.jpg" alt="Logo cơm" className="w-10 h-10 object-contain rounded-full" />
+              <h1 className="text-golden text-xl font-bold ">CƠM NHÀ</h1>
             </div>
             <a
               href="https://zalo.me/0702866767"
@@ -431,7 +431,7 @@ export default function Menu() {
 <footer className="bg-wood-dark/80 border-t border-golden/20 py-8">
   <div className="container mx-auto px-4 text-center">
     <div className="flex justify-center items-center mb-4">
-      <i className="fas fa-utensils text-golden text-3xl mr-3"></i>
+       
       <h2 className="text-2xl font-bold text-golden">CƠM NHÀ</h2>
     </div>
     <p className="text-cream/60 mb-4">Hương vị miền Tây - Ấm cúng như nhà</p>
@@ -446,7 +446,7 @@ export default function Menu() {
       </a>
     </div>
 
-    <p className="text-cream/40 mt-6 text-sm">&copy; 2024 Cơm Nhà - Bản quyền thuộc về Cơm Nhà</p>
+    <p className="text-cream/40 mt-6 text-sm">&copy; 2025 Cơm Nhà - Bản quyền thuộc về Cơm Nhà</p>
   </div>
 </footer>
 </div>

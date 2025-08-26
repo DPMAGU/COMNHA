@@ -498,7 +498,7 @@ export const menuItems: MenuItem[] = [
     name: "Ba Rọi Chiên Sả",
     description: "Thịt bên ngoài giòn, bên trong mềm ngọt thơm ngon",
     category: "chien",
-    image: "MONCHIEN/ba-roi-chien-sa.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    image: "MONCHIEN/ba_roi_chien_sa.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
     prices: {
       small: 60000,
         medium: 110000,
@@ -534,7 +534,7 @@ export const menuItems: MenuItem[] = [
     name: "Cá Biển Chiên Sả",
     description: "Cá chiên vàng ươm, ăn cùng cơm rất ngon",
     category: "chien",
-    image: "MONCHIEN/ca-huong-chien-sa.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    image: "MONCHIEN/ca-huong-chien-sa-5.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
     prices: {
       small: 60000,
         medium: 110000,

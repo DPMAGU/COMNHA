@@ -13,104 +13,6 @@ export interface MenuItem {
 }
 
 export const menuItems: MenuItem[] = [
-  // Món Xào Category
-  {
-    id: "rau-luoc",
-    name: "Rau Luộc",
-    description: "Đĩa rau luộc thanh đạm, xanh mướt, giữ nguyên vị ngọt tự nhiên của rau",
-    category: "xao",
-    image:  "/MONXAO/rau-luoc-2.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
-    prices: {
-      small: 40000,
-      medium: 60000,
-      large: 90000
-    }
-  },
-  {
-    id: "cai-thia-xao-toi",
-    name: "Cải Thìa Xào Tỏi",
-    description: "Cải thìa tươi xanh, xào cùng tỏi phi thơm lừng, giữ vị ngọt giòn tự nhiên của rau",
-    category: "xao",
-    image: "/MONXAO/cai-thia-xao-toi.png?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
-    prices: {
-      small: 40000,
-      medium: 60000,
-      large: 90000
-    }
-  },
-  {
-    id: "kho-qua-xao-trung",
-    name: "Khổ Qua Xào Trứng",
-    description: "Khổ qua tươi xanh, xào cùng trứng vàng ươm, hấp dẫn thơm ngon",
-    category: "xao",
-    image: "/MONXAO/kho-qua-xao-trung.png?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
-    prices: {
-      small: 40000,
-      medium: 60000,
-      large: 90000
-    }
-  },
-  {
-    id: "bong-cai-xao-bo",
-    name: "Bông Cải Xào Bò",
-    description: "Thịt bò mềm ngọt, xào cùng bông cải xanh giòn tươi, thấm vị đậm đà",
-    category: "xao",
-    image: "/MONXAO/bong-cai-xao-bo.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
-    prices: {
-      small: 80000,
-      medium: 120000,
-      large: 160000
-    }
-    
-  },
-  {
-    id: "bong-dien-dien-xao-tep",
-    name: "Bông Điên Điển Xào Tép",
-    description: "Bông điên điển vàng ươm, giòn nhẹ, xào cùng tép tươi ngọt, đậm chất miền Tây",
-    category: "xao",
-    image: "/MONXAO/bong-dien-dien-xao-tep.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
-    prices: {
-      small: 60000,
-      medium: 80000,
-      large: 120000
-    }
-  },
-  {
-    id: "ca-tim-xao-toi",
-    name: "Cà Tím Xào Tỏi",
-    description: "Cà tím mềm ngọt, thấm đẫm hương vị tỏi phi thơm lừng",
-    category: "xao",
-    image: "/MONXAO/ca-tim-xao-toi.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
-    prices: {
-      small: 40000,
-      medium: 60000,
-      large: 90000
-    }
-  },
-  {
-    id: "muc-xao-chua-ngot",
-    name: "Mực Xào Chua Ngọt",
-    description: "Mực tươi giòn ngọt, xào cùng rau củ tươi và sốt chua ngọt đậm đà",
-    category: "xao",
-    image: "/MONXAO/muc-xao-chua-ngot.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
-    prices: {
-      small: 90000,
-      medium: 120000,
-      large: 160000
-    }
-  },
-  {
-    id: "bong-thien-ly-xao-thit-bo",
-    name: "Bông Thiên Lý Xào Thịt Bò",
-    description: "Bông thiên lý xanh non, giòn ngọt, xào cùng thịt bò mềm thơm",
-    category: "xao",
-    image: "/MONXAO/thit-bo-xao-bong-thien-ly.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
-    prices: {
-      small: 90000,
-      medium: 120000,
-      large: 160000
-    }
-  },
   // Món Kho Category
   {
     id: "ba-roi-heo-kho-tieu",
@@ -292,6 +194,105 @@ export const menuItems: MenuItem[] = [
       large: 160000
     }
   },
+  // Món Xào Category
+  {
+    id: "rau-luoc",
+    name: "Rau Luộc",
+    description: "Đĩa rau luộc thanh đạm, xanh mướt, giữ nguyên vị ngọt tự nhiên của rau",
+    category: "xao",
+    image:  "/MONXAO/rau-luoc-2.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    prices: {
+      small: 40000,
+      medium: 60000,
+      large: 90000
+    }
+  },
+  {
+    id: "cai-thia-xao-toi",
+    name: "Cải Thìa Xào Tỏi",
+    description: "Cải thìa tươi xanh, xào cùng tỏi phi thơm lừng, giữ vị ngọt giòn tự nhiên của rau",
+    category: "xao",
+    image: "/MONXAO/cai-thia-xao-toi.png?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    prices: {
+      small: 40000,
+      medium: 60000,
+      large: 90000
+    }
+  },
+  {
+    id: "kho-qua-xao-trung",
+    name: "Khổ Qua Xào Trứng",
+    description: "Khổ qua tươi xanh, xào cùng trứng vàng ươm, hấp dẫn thơm ngon",
+    category: "xao",
+    image: "/MONXAO/kho-qua-xao-trung.png?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    prices: {
+      small: 40000,
+      medium: 60000,
+      large: 90000
+    }
+  },
+  {
+    id: "bong-cai-xao-bo",
+    name: "Bông Cải Xào Bò",
+    description: "Thịt bò mềm ngọt, xào cùng bông cải xanh giòn tươi, thấm vị đậm đà",
+    category: "xao",
+    image: "/MONXAO/bong-cai-xao-bo.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    prices: {
+      small: 80000,
+      medium: 120000,
+      large: 160000
+    }
+    
+  },
+  {
+    id: "bong-dien-dien-xao-tep",
+    name: "Bông Điên Điển Xào Tép",
+    description: "Bông điên điển vàng ươm, giòn nhẹ, xào cùng tép tươi ngọt, đậm chất miền Tây",
+    category: "xao",
+    image: "/MONXAO/bong-dien-dien-xao-tep.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    prices: {
+      small: 60000,
+      medium: 80000,
+      large: 120000
+    }
+  },
+  {
+    id: "ca-tim-xao-toi",
+    name: "Cà Tím Xào Tỏi",
+    description: "Cà tím mềm ngọt, thấm đẫm hương vị tỏi phi thơm lừng",
+    category: "xao",
+    image: "/MONXAO/ca-tim-xao-toi.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    prices: {
+      small: 40000,
+      medium: 60000,
+      large: 90000
+    }
+  },
+  {
+    id: "muc-xao-chua-ngot",
+    name: "Mực Xào Chua Ngọt",
+    description: "Mực tươi giòn ngọt, xào cùng rau củ tươi và sốt chua ngọt đậm đà",
+    category: "xao",
+    image: "/MONXAO/muc-xao-chua-ngot.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    prices: {
+      small: 90000,
+      medium: 120000,
+      large: 160000
+    }
+  },
+  {
+    id: "bong-thien-ly-xao-thit-bo",
+    name: "Bông Thiên Lý Xào Thịt Bò",
+    description: "Bông thiên lý xanh non, giòn ngọt, xào cùng thịt bò mềm thơm",
+    category: "xao",
+    image: "/MONXAO/thit-bo-xao-bong-thien-ly.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    prices: {
+      small: 90000,
+      medium: 120000,
+      large: 160000
+    }
+  },
+  
   // Lẩu Mắm Category
   {
     id: "lau-mam",
@@ -642,6 +643,248 @@ export const menuItems: MenuItem[] = [
       regular: 22000
     }
   },
+  // CƠM DĨA Category
+  {
+    id: "ba-roi-heo-kho-tieu-phan",
+    name: "Ba Rọi Heo Kho Tiêu",
+    description: "1 Phần bao gồm : Cơm + Món mặn + Súp",
+    category: "comdia",
+    image: "/MONKHO/ba-roi-kho-tieu.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    prices: {
+      regular: 40000
+    }
+  },
+  {
+    id: "ca-hu-kho-tieu-phan",
+    name: "Cá Hú Kho Tiêu",
+    description: "1 Phần bao gồm : Cơm + Món mặn + Súp",
+    category: "comdia",
+    image: "/MONKHO/ca-hu-kho.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    prices: {
+      regular: 40000
+    }
+  },
+  {
+    id: "ca-loc-kho-tieu-phan",
+    name: "Cá Lóc Kho Tiêu",
+    description: "1 Phần bao gồm : Cơm + Món mặn + Súp",
+    category: "comdia",
+    image: "/MONKHO/ca-loc-kho.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    prices: {
+      regular: 40000
+    }
+  },
+  {
+    id: "ca-ro-kho-tieu-phan",
+    name: "Cá Rô Kho Tiêu",
+    description: "1 Phần bao gồm : Cơm + Món mặn + Súp",
+    category: "comdia",
+    image: "/MONKHO/ca-ro-kho.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    prices: {
+      regular: 40000
+    }
+  },
+  {
+    id: "vit-kho-rung-phan",
+    name: "Vịt Kho Rừng",
+    description: "1 Phần bao gồm : Cơm + Món mặn + Súp",
+    category: "comdia",
+    image: "/MONKHO/vit-kho-rung.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    prices: {
+      regular: 40000
+    }
+  },
+  {
+    id: "ga-xao-sa-ot-phan",
+    name: "Gà Xào Sả Ớt",
+    description: "1 Phần bao gồm : Cơm + Món mặn + Súp",
+    category: "comdia",
+    image: "/MONKHO/ga-xao-sa-ot.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    prices: {
+      regular: 40000
+    }
+  },
+  {
+    id: "mam-chung-phan",
+    name: "Mắm Chưng",
+    description: "1 Phần bao gồm : Cơm + Món mặn + Súp",
+    category: "comdia",
+    image: "/MONKHO/mam-chung.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    prices: {
+      regular: 40000
+    }
+  },
+  {
+    id: "ca-he-kho-reu-phan",
+    name: "Cá He Kho Rệu",
+    description: "1 Phần bao gồm : Cơm + Món mặn + Súp",
+    category: "comdia",
+    image: "/MONKHO/ca-he-kho-reu.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    prices: {
+       regular: 40000
+    }
+  },
+  {
+    id: "ca-bien-kho-ca-phan",
+    name: "Cá Biển Kho Cà",
+    description: "1 Phần bao gồm : Cơm + Món mặn + Súp",
+    category: "comdia",
+    image: "/MONKHO/ca-bien-kho-ca.png?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    prices: {
+      regular: 40000
+    }
+  },
+  {
+    id: "thit-kho-hot-vit-phan",
+    name: "Thịt Kho Hột Vịt",
+    description: "1 Phần bao gồm : Cơm + Món mặn + Súp",
+    category: "comdia",
+    image: "/MONKHO/thit-kho-hot-vit.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    prices: {
+      regular: 40000
+    }
+  },
+  {
+    id: "tom-kho-to-phan",
+    name: "Tôm Kho Tộ",
+    description: "1 Phần bao gồm : Cơm + Món mặn + Súp",
+    category: "comdia",
+    image: "/MONKHO/tom-kho-to.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    prices: {
+      regular: 50000
+    }
+  },
+  {
+    id: "luon-kho-sa-ot-phan",
+    name: "Lươn Kho Sả Ớt",
+    description: "1 Phần bao gồm : Cơm + Món mặn + Súp",
+    category: "comdia",
+    image: "/MONKHO/luon-kho-sa-ot.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    prices: {
+      regular: 40000
+    }
+  },
+  {
+    id: "tep-ram-man-phan",
+    name: "Tép Ram Mặn",
+    description: "1 Phần bao gồm : Cơm + Món mặn + Súp",
+    category: "comdia",
+    image: "/MONKHO/tep-ram-man.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    prices: {
+      regular: 40000
+    }
+  },
+  {
+    id: "ech-xao-sa-ot-phan",
+    name: "Ếch Xào Sả ",
+    description: "1 Phần bao gồm : Cơm + Món mặn + Súp",
+    category: "comdia",
+    image: "/MONKHO/ech-xao-sa-ot.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    prices: {
+      regular: 40000
+    }
+  },
+  {
+    id: "suon-heo-ram-man-phan",
+    name: "Sườn Heo Ram Mặn",
+    description: "1 Phần bao gồm : Cơm + Món mặn + Súp",
+    category: "comdia",
+    image: "/MONKHO/suon-heo-ram-man.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    prices: {
+       regular: 50000
+    }
+  },
+  {
+    id: "suon-heo-chien-sa-phan",
+    name: "Sườn Heo Chiên Sả",
+    description: "1 Phần bao gồm : Cơm + Món mặn + Súp",
+    category: "comdia",
+    image: "MONCHIEN/suon-heo-chien-sa.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    prices: {
+      regular: 50000
+    }
+  },
+
+  {
+    id: "ca-ba-sa-chien-sa-phan",
+    name: "Cá Ba Sa Chiên Sả",
+    description: "1 Phần bao gồm : Cơm + Món mặn + Súp",
+    category: "comdia",
+    image: "/MONCHIEN/ca-ba-sa-chien-sa.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    prices: {
+      regular: 40000
+    }
+  },
+  {
+    id: "ca-dieu-hong-chien-sot-ca-phan",
+    name: "Cá Điêu Hồng Sốt Cà",
+    description: "1 Phần bao gồm : Cơm + Món mặn + Súp",
+    category: "comdia",
+    image: "MONCHIEN/ca-dieu-hong-chien-sot-ca.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    prices: {
+      regular: 40000
+    }
+  },
+  {
+    id: "cha-ca-thac-lac-chien-phan",
+    name: "Chả Cá Thác Lác Chiên",
+    description: "1 Phần bao gồm : Cơm + Món mặn + Súp",
+    category: "comdia",
+    image: "MONCHIEN/cha-ca-thac-lac-chien.png?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    prices: {
+      regular: 40000
+    }
+  },
+  {
+    id: "ba-roi-chien-sa-phan",
+    name: "Ba Rọi Chiên Sả",
+    description: "1 Phần bao gồm : Cơm + Món mặn + Súp",
+    category: "comdia",
+    image: "MONCHIEN/ba-roi-chien-sa.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    prices: {
+       regular: 40000
+    }
+  },
+  {
+    id: "kho-ca-loc-chien-phan",
+    name: "Khô Cá Lóc Chiên",
+    description: "1 Phần bao gồm : Cơm + Món mặn + Súp",
+    category: "comdia",
+    image: "MONCHIEN/kho-ca-loc-chien.jpeg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    prices: {
+       regular: 40000
+    }
+  },
+  {
+    id: "kho-ca-sac-chien-phan",
+    name: "Khô Cá Sặc Chiên",
+    description: "1 Phần bao gồm : Cơm + Món mặn + Súp",
+    category: "comdia",
+    image: "MONCHIEN/kho-ca-sac-chien.png?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    prices: {
+       regular: 45000
+    }
+  },
+  {
+    id: "ca-bien-chien-sa-phan",
+    name: "Cá Biển Chiên Sả",
+    description: "1 Phần bao gồm : Cơm + Món mặn + Súp",
+    category: "comdia",
+    image: "MONCHIEN/ca-huong-chien-sa.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    prices: {
+       regular: 40000
+    }
+  },
+  {
+    id: "trung-chien-ca-phan",
+    name: "Trứng Chiên Cà",
+    description: "1 Phần bao gồm : Cơm + Món mặn + Súp",
+    category: "comdia",
+    image: "/MONCHIEN/trung-chien-ca.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+    prices: {
+      regular: 40000
+    }
+  },
   // Món Thêm Category
   {
     id: "com-trang",
@@ -672,6 +915,7 @@ export const categories = [
   { id: 'laumam', name: 'Lẩu Mắm' },
   { id: 'canh', name: 'Món Canh' },
   { id: 'chien', name: 'Món Chiên' },
+  { id: 'comdia', name: 'Cơm Dĩa' },
   { id: 'monthem', name: 'Món Thêm' },
    { id: 'giaikhat', name: 'Giải Khát' }
 ];

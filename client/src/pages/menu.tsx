@@ -342,6 +342,7 @@ export default function Menu() {
                       />
                       <h4 className="text-sm md:text-lg font-semibold text-golden mb-1 md:mb-2 leading-tight">{item.name}</h4>
                       <p className="text-cream/70 text-xs md:text-sm mb-2 md:mb-3 line-clamp-2">{item.description}</p>
+                      <p className="text-golden italic text-[10px] leading-snug">(*) Hình ảnh chỉ mang tính chất minh họa.</p>
                       <div className="text-xs md:text-sm">{renderPrices(item)}</div>
                     </div>
                   ))}

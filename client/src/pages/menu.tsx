@@ -373,7 +373,7 @@ export default function Menu() {
                     <i className="fas fa-map-marker-alt mr-2"></i>Địa chỉ
                   </h4>
                   <p className="text-cream/80 mb-4">
-                    Số 10 Nhánh Số 4, Lý Thái Tổ nối dài, P. Long Xuyên, TP. An Giang
+                    Số 10 Nhánh Số 4, Lý Thái Tổ nối dài, P. Long Xuyên, Tỉnh An Giang
                   </p>
 
                   <h4 className="text-lg font-semibold text-golden mb-4 flex items-center">
